@@ -22,3 +22,14 @@ h1 .sub-headline {
     width: 100vw;
     height: 75vh;
 }
+
+.tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 12px;
+}
