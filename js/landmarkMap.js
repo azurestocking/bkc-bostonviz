@@ -17,10 +17,11 @@ class LandmarkMap {
 		vis.map = L.map(vis.parentElement).setView(vis.coord, 13);
 
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			minZoom: 11,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 		}).addTo(vis.map);
 
-		// Define icons
+		// define icons
 		let LeafIcon = L.Icon.extend({
 			options: {
 				shadowUrl: 'img/marker-shadow.png',
