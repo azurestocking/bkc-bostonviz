@@ -1,48 +1,31 @@
-
-/*
- *  LandmarkMap - Object constructor function
- *  @param _parentElement   -- HTML element in which to draw the visualization
- *  @param _data            -- Array with all stations of the bike-sharing network
- */
-
 class LandmarkMap {
 
-	/*
-	 *  Constructor method
-	 */
 	constructor(parentElement, deniedLandmarks, pendingLandmarks, approvedLandmarks, coord) {
 		this.parentElement = parentElement;
 		this.deniedLandmarks = deniedLandmarks;
 		this.pendingLandmarks = pendingLandmarks;
 		this.approvedLandmarks = approvedLandmarks;
 		this.coord = coord;
+		this.markers = [];
 
 		this.initVis();
 	}
 
-
-	/*
-	 *  Initialize map
-	 */
-	initVis () {
+	initVis() {
 		let vis = this;
 
-		console.log("denied landmarks: ", vis.deniedLandmarks);
-		console.log("pending landmarks: ", vis.pendingLandmarks);
-		console.log("approved landmarks: ", vis.approvedLandmarks);
-
-		vis.map = L.map("landmark-map").setView(vis.coord, 13);
+		vis.map = L.map(vis.parentElement).setView(vis.coord, 13);
 
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 		}).addTo(vis.map);
 
 		// Define icons
-		var LeafIcon = L.Icon.extend({
+		let LeafIcon = L.Icon.extend({
 			options: {
 				shadowUrl: 'img/marker-shadow.png',
-				iconSize:     [12.5, 20],
-				shadowSize:   [12.5, 20]
+				iconSize: [12.5, 20],
+				shadowSize: [12.5, 20]
 			}
 		});
 		vis.approvedIcon = new LeafIcon({ iconUrl: 'img/marker-blue.png' });
@@ -56,119 +39,73 @@ class LandmarkMap {
 		vis.wrangleData();
 	}
 
-
-	/*
-	 *  Data wrangling
-	 */
-	wrangleData () {
+	wrangleData() {
 		let vis = this;
 
-		vis.updateVis();
+		vis.updateVis('all');
 	}
 
-	updateVis() {
+
+	updateVis(selectedCategory = 'all') {
 		let vis = this;
 
-		vis.deniedLandmarks.forEach(function(landmark) {
-			let coordinate = landmark.coordinate.split(',').map(Number);
-			L.marker(coordinate, {icon: vis.deniedIcon}).addTo(vis.map)
-				.on("mouseover", function (event, d) {
-					vis.tooltip.transition()
-						.duration(200)
-						.style("opacity", 0.9);
+		// clear existing markers
+		vis.markers.forEach(marker => vis.map.removeLayer(marker));
+		vis.markers = [];
 
-					let tooltipContent = `
-						<b>DENIED</b><br/>
-						Name: ${landmark["NAME OF PROPERTY"]}<br/>
-						Address: ${landmark["ADDRESS"]}<br/>
-						Details: ${landmark["DETAILS"]}<br/>
-						Petition: ${landmark["PETITION"]}<br/>
-						Petition by ${landmark["PETITION BY"]}
-                	`;
+		// filter out the selected landmarks
+		const createMarkers = (landmarks, category) => {
+			landmarks.forEach(landmark => {
+				let coordinate = landmark.coordinate.split(',').map(Number);
+				let icon = vis[`${category}Icon`];
 
-					let mouseEvent = event.originalEvent;
+				let marker = L.marker(coordinate, { icon: icon }).addTo(vis.map)
+					.on("mouseover", function (event) {
+						vis.tooltip.transition()
+							.duration(200)
+							.style("opacity", 0.9);
 
-					vis.tooltip.html(tooltipContent)
-						.style("left", (mouseEvent.pageX + 10) + "px")
-						.style("top", (mouseEvent.pageY + 10) + "px")
-						.style("visibility", "visible");
-				})
-				.on("mouseout", function (event, d) {
-					vis.tooltip.transition()
-						.duration(500)
-						.style("opacity", 0)
-						.end()
-						.then(() => vis.tooltip.style("visibility", "hidden"));
-				});
-		});
+						let tooltipContent = `<b>${category.charAt(0).toUpperCase() + category.slice(1)}</b><br/>`;
+						Object.keys(landmark).forEach(key => {
+							tooltipContent += `${key}: ${landmark[key]}<br/>`;
+						});
 
-		vis.pendingLandmarks.forEach(function(landmark) {
-			let coordinate = landmark.coordinate.split(',').map(Number);
-			L.marker(coordinate, {icon: vis.pendingIcon}).addTo(vis.map)
-				.on("mouseover", function (event, d) {
-					vis.tooltip.transition()
-						.duration(200)
-						.style("opacity", 0.9);
+						let mouseEvent = event.originalEvent;
+						vis.tooltip.html(tooltipContent)
+							.style("left", (mouseEvent.pageX + 10) + "px")
+							.style("top", (mouseEvent.pageY + 10) + "px")
+							.style("visibility", "visible");
+					})
+					.on("mouseout", function () {
+						vis.tooltip.transition()
+							.duration(500)
+							.style("opacity", 0)
+							.end()
+							.then(() => vis.tooltip.style("visibility", "hidden"));
+					});
 
-					let tooltipContent = `
-						<b>PENDING</b><br/>
-						Name: ${landmark["NAME OF PROPERTY"]}<br/>
-						Address: ${landmark["ADDRESS"]}<br/>
-						Details: ${landmark["DETAILS"]}<br/>
-						Petition: ${landmark["PETITION"]}<br/>
-						Petition by ${landmark["PETITION BY"]}
-                	`;
+				vis.markers.push(marker);
+			});
+		};
 
-					let mouseEvent = event.originalEvent;
-
-					vis.tooltip.html(tooltipContent)
-						.style("left", (mouseEvent.pageX + 10) + "px")
-						.style("top", (mouseEvent.pageY + 10) + "px")
-						.style("visibility", "visible");
-				})
-				.on("mouseout", function (event, d) {
-					vis.tooltip.transition()
-						.duration(500)
-						.style("opacity", 0)
-						.end()
-						.then(() => vis.tooltip.style("visibility", "hidden"));
-				});
-		});
-
-		vis.approvedLandmarks.forEach(function(landmark) {
-			let coordinate = landmark.coordinate.split(',').map(Number);
-			L.marker(coordinate, {icon: vis.approvedIcon}).addTo(vis.map)
-				.on("mouseover", function (event, d) {
-					vis.tooltip.transition()
-						.duration(200)
-						.style("opacity", 0.9);
-
-					let tooltipContent = `
-						<b>APPROVED</b><br/>
-						Address: ${landmark["full_address"]}<br/>
-						Use: ${landmark["use_class"]}<br/>
-						Building Typology: ${landmark["building_typology"]}<br/>
-						Assessor Category: ${landmark["assessor_category"]}<br/>
-						Assessor Description: ${landmark["assessor_description"]}<br/>
-						Owner List: ${landmark["owner_list"]}<br/>
-						Year of Built: ${landmark["year_built_class"]}
-                	`;
-
-					let mouseEvent = event.originalEvent;
-
-					vis.tooltip.html(tooltipContent)
-						.style("left", (mouseEvent.pageX + 10) + "px")
-						.style("top", (mouseEvent.pageY + 10) + "px")
-						.style("visibility", "visible");
-				})
-				.on("mouseout", function (event, d) {
-					vis.tooltip.transition()
-						.duration(500)
-						.style("opacity", 0)
-						.end()
-						.then(() => vis.tooltip.style("visibility", "hidden"));
-				});
-		});
+		// show all landmarks by default
+		if (selectedCategory === 'all') {
+			createMarkers(vis.approvedLandmarks, 'approved');
+			createMarkers(vis.pendingLandmarks, 'pending');
+			createMarkers(vis.deniedLandmarks, 'denied');
+		} else {
+			switch (selectedCategory) {
+				case "approved":
+					createMarkers(vis.approvedLandmarks, 'approved');
+					break;
+				case "pending":
+					createMarkers(vis.pendingLandmarks, 'pending');
+					break;
+				case "denied":
+					createMarkers(vis.deniedLandmarks, 'denied');
+					break;
+			}
+		}
 	}
+
 }
-

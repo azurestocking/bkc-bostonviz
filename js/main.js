@@ -14,6 +14,5 @@ Promise.all([
 });
 
 function renderMap(deniedLandmarks, pendingLandmarks, approvedLandmarks) {
-    // console.log(deniedLandmarks, pendingLandmarks, approvedLandmarks);
     landmarkMap = new LandmarkMap("landmark-map", deniedLandmarks, pendingLandmarks, approvedLandmarks, [42.360082, -71.058880]);
 }
