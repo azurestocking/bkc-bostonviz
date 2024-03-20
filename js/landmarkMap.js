@@ -11,6 +11,8 @@ class LandmarkMap {
 		this.initVis();
 	}
 
+
+
 	initVis() {
 		let vis = this;
 
@@ -29,9 +31,9 @@ class LandmarkMap {
 				shadowSize: [12.5, 20]
 			}
 		});
-		vis.approvedIcon = new LeafIcon({ iconUrl: 'img/marker-blue.png' });
-		vis.pendingIcon = new LeafIcon({ iconUrl: 'img/marker-yellow.png' });
-		vis.deniedIcon = new LeafIcon({ iconUrl: 'img/marker-red.png' });
+		vis.approvedIcon = new LeafIcon({ iconUrl: "img/marker-blue.png" });
+		vis.pendingIcon = new LeafIcon({ iconUrl: "img/marker-yellow.png" });
+		vis.deniedIcon = new LeafIcon({ iconUrl: "img/marker-red.png" });
 
 		vis.tooltip = d3.select("body").append("div")
 			.attr("class", "tooltip")
@@ -40,14 +42,17 @@ class LandmarkMap {
 		vis.wrangleData();
 	}
 
+
+
 	wrangleData() {
 		let vis = this;
 
-		vis.updateVis('all');
+		vis.updateVis("all");
 	}
 
 
-	updateVis(selectedCategory = 'all') {
+
+	updateVis(selectedCategory = "all") {
 		let vis = this;
 
 		// clear existing markers
@@ -57,7 +62,7 @@ class LandmarkMap {
 		// filter out the selected landmarks
 		const createMarkers = (landmarks, category) => {
 			landmarks.forEach(landmark => {
-				let coordinate = landmark.coordinate.split(',').map(Number);
+				let coordinate = landmark.coordinate.split(",").map(Number);
 				let icon = vis[`${category}Icon`];
 
 				let marker = L.marker(coordinate, { icon: icon }).addTo(vis.map)
@@ -90,20 +95,20 @@ class LandmarkMap {
 		};
 
 		// show all landmarks by default
-		if (selectedCategory === 'all') {
-			createMarkers(vis.approvedLandmarks, 'approved');
-			createMarkers(vis.pendingLandmarks, 'pending');
-			createMarkers(vis.deniedLandmarks, 'denied');
+		if (selectedCategory === "all") {
+			createMarkers(vis.approvedLandmarks, "approved");
+			createMarkers(vis.pendingLandmarks, "pending");
+			createMarkers(vis.deniedLandmarks, "denied");
 		} else {
 			switch (selectedCategory) {
 				case "approved":
-					createMarkers(vis.approvedLandmarks, 'approved');
+					createMarkers(vis.approvedLandmarks, "approved");
 					break;
 				case "pending":
-					createMarkers(vis.pendingLandmarks, 'pending');
+					createMarkers(vis.pendingLandmarks, "pending");
 					break;
 				case "denied":
-					createMarkers(vis.deniedLandmarks, 'denied');
+					createMarkers(vis.deniedLandmarks, "denied");
 					break;
 			}
 		}
