@@ -19,7 +19,7 @@ class LandmarkMap {
 		vis.map = L.map(vis.parentElement).setView(vis.coord, 13);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clu2uvkqj003r01qq26vrhji7/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
-			minZoom: 11,
+			minZoom: 5,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
 
