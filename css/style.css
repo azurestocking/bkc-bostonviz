@@ -25,3 +25,10 @@ h1 {
     pointer-events: none;
     font-size: 12px;
 }
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
