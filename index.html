@@ -20,34 +20,15 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-10 offset-1">
-
-            <!-- header -->
-            <div class="header">
-                <div class="row justify-content-center">
-                    <!-- headline -->
-                    <div class="col-sm-8">
-                        <h1 class="align-self-center">Boston Landmarks</h1>
-                    </div>
-                    <div class="col-sm-4">
-                        <!-- existing landmarks -->
-                        <select id="select-landmark" class="form-select" aria-label="layers of landmarks">
-                            <option selected value="all">All Landmarks</option>
-                            <option value="approved">Approved Landmarks</option>
-                            <option value="pending">Pending Landmarks</option>
-                            <option value="denied">Denied Landmarks</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- map -->
-            <div class="row">
-                <div id="landmark-map">
-                    <!-- map canvas-->
-                </div>
-            </div>
-        </div>
+        <div id="landmark-map"></div>
+    </div>
+    <div id="floating-select" class="row">
+        <select id="select-landmark" class="form-select" aria-label="layers of landmarks">
+            <option selected value="all">All Landmarks</option>
+            <option value="approved">Approved Landmarks</option>
+            <option value="pending">Pending Landmarks</option>
+            <option value="denied">Denied Landmarks</option>
+        </select>
     </div>
 </div>
 

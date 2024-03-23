@@ -19,16 +19,16 @@ class LandmarkMap {
 		vis.map = L.map(vis.parentElement).setView(vis.coord, 13);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clu2uvkqj003r01qq26vrhji7/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
-			minZoom: 5,
+			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
 
 		// define icons
 		let LeafIcon = L.Icon.extend({
 			options: {
-				shadowUrl: 'img/marker-shadow.png',
-				iconSize: [12.5, 20],
-				shadowSize: [12.5, 20]
+				// shadowUrl: 'img/marker-shadow.png',
+				// shadowSize: [12.5, 20],
+				iconSize: [12.5, 20]
 			}
 		});
 		vis.approvedIcon = new LeafIcon({ iconUrl: "img/marker-blue.png" });

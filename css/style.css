@@ -2,17 +2,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.header {
-    margin-top: 50px;
-}
-
-h1 {
-    font-size: 30px;
-}
-
 #landmark-map {
     width: 100vw;
-    height: 75vh;
+    height: 100vh;
 }
 
 .tooltip {
@@ -31,4 +23,12 @@ h1 {
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+#floating-select {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }
