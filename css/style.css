@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "EB Garamond", serif;
 }
 
 #landmark-map {
@@ -31,4 +31,17 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+}
+
+#title {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+h1 {
+    font-family: "Fredericka the Great", serif;
+    font-size: 36px;
 }
