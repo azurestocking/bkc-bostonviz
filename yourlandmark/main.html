@@ -14,6 +14,15 @@
                 display: flex;
                 flex-direction: column;
             }
+
+            input, textarea, select {
+                font-size: 16px; /* Minimum recommended size to avoid zoom on iOS */
+            }
+
+            .search-input {
+                font-size: 16px; /* Adjust the font size to prevent auto-zoom on iOS */
+            }
+            
             #mapid {
                 flex: 1; /* Take up all available space */
                 width: 100%; /* Ensure it spans the full width */
