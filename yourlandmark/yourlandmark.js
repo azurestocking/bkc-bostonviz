@@ -8,7 +8,7 @@
 let mymap = L.map('mapid', {zoomControl: false}).setView([42.3601, -71.0589], 13); // Boston's coordinates
 L.control.zoom({position: 'bottomleft'}).addTo(mymap);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}@2x.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
