@@ -1,11 +1,14 @@
+var bounds = [
+    [41.237964, -73.508142], // Southwestern coordinates
+    [42.886589, -69.858861]  // Northeastern coordinates
+];
 
 
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-let mymap = L.map('mapid', {zoomControl: false}).setView([42.3601, -71.0589], 13); // Boston's coordinates
+let mymap = L.map('mapid', {
+    zoomControl: false,
+    maxBounds: bounds,
+    maxBoundsViscosity: 1.0
+}).setView([42.3601, -71.0589], 13); // Boston's coordinates
 L.control.zoom({position: 'bottomleft'}).addTo(mymap);
 
 L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}@2x.png', {
@@ -14,6 +17,7 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}@2x.png', 
 
 let marker;
 let displayName = "";
+
 
 // Initialize the marker at map center
 function addInitialMarker() {
@@ -106,7 +110,7 @@ function submitLandmark() {
     // console.log('Name:', name);
     // console.log('Description:', description);
     console.log('Latitude:', latlng.lat, 'Longitude:', latlng.lng, 'Display Name:', displayName);
-    window.location.href = `https://lobs.boston.weiminggan.com/bostonlandmark/submission.php?name=${name}&latitude=${latlng.lat}&longitude=${latlng.lng}`;
+    window.location.href = `https://lobs.boston/bostonlandmark/submission.php?name=${name}&latitude=${latlng.lat}&longitude=${latlng.lng}`;
 
     // Here, you would send this data to your server via AJAX or a form submission
 }
