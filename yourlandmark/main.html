@@ -1,77 +1,77 @@
 <html>
-    <head>
-        <title>Share Your Landmark in Boston</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css"/>
-        <script src="https://unpkg.com/leaflet-search/dist/leaflet-search.min.js"></script>
-        <style>
-            body, html {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-            }
+<head>
+    <title>Share Your Landmark in Boston</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css"/>
+    <script src="https://unpkg.com/leaflet-search/dist/leaflet-search.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
-            input, textarea, select {
-                font-size: 16px; /* Minimum recommended size to avoid zoom on iOS */
-            }
+        input, textarea, select {
+            font-size: 16px; /* Minimum recommended size to avoid zoom on iOS */
+        }
 
-            .search-input {
-                font-size: 16px; /* Adjust the font size to prevent auto-zoom on iOS */
-            }
+        .search-input {
+            font-size: 16px; /* Adjust the font size to prevent auto-zoom on iOS */
+        }
 
-            #mapid {
-                flex: 1; /* Take up all available space */
-                width: 100%; /* Ensure it spans the full width */
-            }
-            button {
-                /* Styling for the button to make it more clickable on mobile */
-                background-color: #5a3838;
-                color: white;
-                padding: 12px;
-                margin: 10px;
-                border: none;
-                border-radius: 4px;
-                font-size: 16px;
-            }
-            button:hover {
-                background-color: rgba(90, 56, 56, 0.8);
-            }
+        #mapid {
+            flex: 1; /* Take up all available space */
+            width: 100%; /* Ensure it spans the full width */
+        }
+        button {
+            /* Styling for the button to make it more clickable on mobile */
+            background-color: #5a3838;
+            color: white;
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgba(90, 56, 56, 0.8);
+        }
 
-            #title {
-                /*background-color: #5a3838; !* Same as the button *!*/
-                color: #5a3838; /* Text color */
-                padding: 12px; /* Similar padding to the button for consistency */
-                margin: 10px; /* Margin to match the button */
-                border-radius: 4px; /* Rounded corners like the button */
-                font-size: 20px; /* Larger font size for title prominence */
-                text-align: center; /* Center the title text */
-                width: calc(100% - 20px); /* Adjust width to account for margin */
-                box-sizing: border-box; /* Include padding and border in the element's width */
-            }
-
-
-            /* Styling for Search Bar */
-            .search-input {
-                width: 85vw !important;
-            }
+        #title {
+            /*background-color: #5a3838; !* Same as the button *!*/
+            color: #5a3838; /* Text color */
+            padding: 0px 12px; /* Similar padding to the button for consistency */
+            margin: 10px; /* Margin to match the button */
+            border-radius: 4px; /* Rounded corners like the button */
+            font-size: 20px; /* Larger font size for title prominence */
+            text-align: center; /* Center the title text */
+            width: calc(100% - 20px); /* Adjust width to account for margin */
+            box-sizing: border-box; /* Include padding and border in the element's width */
+        }
 
 
-        </style>
+        /* Styling for Search Bar */
+        .search-input {
+            width: 84vw !important;
+        }
 
-    </head>
 
-    <body>
-        <div id="title">Mark Your Own Landmark!</div>
-        <div id="mapid"></div>
+    </style>
+
+</head>
+
+<body>
+<div id="title"><b>Make Your Own Landmark!</b></div>
+<div id="mapid"></div>
 <!--        <input type="text" id="name" placeholder="Name of Your Landmark">-->
 <!--        <textarea id="description" placeholder="Why is this your landmark?"></textarea>-->
 <!--        <button onclick="submitLandmark()">Submit</button>-->
-        <button id="submitLandmarkBtn">Continue</button>
+<button id="submitLandmarkBtn">Continue</button>
 
-        <script src="yourlandmark.js"></script>
-    </body>
+<script src="yourlandmark.js"></script>
+</body>
 </html>
