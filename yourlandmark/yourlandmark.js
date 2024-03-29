@@ -48,15 +48,26 @@ let searchControlOptions = {
     marker: null,
     minLength: 2,
     moveToLocation: function(location) { // Action set after search result
-        mymap.fitBounds(location.__boundingBox__);
-        //console.log("Location Name in moveToLocation:", location.display_name);
         displayName = location.display_name;
-        function onMoveEnd() {
-            var displayNamePop = location.display_name ? location.display_name : "Your New Landmark";
-            marker.bindPopup(displayNamePop).openPopup(); // Popup with location name
-            mymap.off('moveend', onMoveEnd);
+        var bounds = location.__boundingBox__;
+        var displayNamePop = location.display_name ? location.display_name : "Your New Landmark";
+        
+        mymap.fitBounds(bounds);
+        
+        function showPopup() {
+            marker.getPopup().setContent(displayNamePop);
+            marker.openPopup();
         }
-        mymap.on('moveend', onMoveEnd);
+
+        if (mymap.getBounds().contains(bounds)) {
+            showPopup();
+        } else {
+            function onMoveEnd() {
+                showPopup();
+                mymap.off('moveend', onMoveEnd);
+            }
+                mymap.on('moveend', onMoveEnd);
+        }
     },
     propertyLoc: ["lat", "lon"],
     propertyName: "display_name",
