@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch Landmarks Data</title>
+</head>
+<body>
+    <script>
+        fetch('https://lobs.boston/bostonlandmark/fetch_yourlandmark.php')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Process and display the data
+                // For example, display the data in a table or use it in a map
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
