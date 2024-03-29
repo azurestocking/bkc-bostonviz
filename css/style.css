@@ -1,10 +1,36 @@
 body {
     font-family: "EB Garamond", serif;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 #landmark-map {
     width: 100vw;
     height: 100vh;
+}
+
+#nav {
+    padding: 2rem;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #111111;
+    --bs-btn-border-color: #111111;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #111111;
+    --bs-btn-hover-border-color: #111111;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #111111;
+    --bs-btn-active-border-color: #111111;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #111111;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #111111;
+    --bs-gradient: none;
 }
 
 .tooltip {
@@ -18,21 +44,6 @@ body {
     font-size: 12px;
 }
 
-#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-#floating-select {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-
 #title {
     position: absolute;
     top: 2rem;
@@ -41,8 +52,8 @@ body {
     z-index: 1000;
 }
 
-h1 {
-    font-family: "Fredericka the Great", serif;
-    font-size: 36px;
-    text-align: center;
+/* toggle */
+.btn-group-vertical {
+    padding-right: 0px;
+    padding-left: 0px;
 }

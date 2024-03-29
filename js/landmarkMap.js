@@ -26,14 +26,12 @@ class LandmarkMap {
 		// define icons
 		let LeafIcon = L.Icon.extend({
 			options: {
-				// shadowUrl: 'img/marker-shadow.png',
-				// shadowSize: [12.5, 20],
-				iconSize: [12.5, 20]
+				iconSize: [20, 20]
 			}
 		});
-		vis.approvedIcon = new LeafIcon({ iconUrl: "img/marker-blue.png" });
-		vis.pendingIcon = new LeafIcon({ iconUrl: "img/marker-yellow.png" });
-		vis.deniedIcon = new LeafIcon({ iconUrl: "img/marker-red.png" });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon', html: '🔵', iconSize: [20, 20] });
+		vis.pendingIcon = L.divIcon({ className: 'emoji-icon', html: '🟡', iconSize: [20, 20] });
+		vis.deniedIcon = L.divIcon({ className: 'emoji-icon', html: '🔴', iconSize: [20, 20] });
 
 		vis.tooltip = d3.select("body").append("div")
 			.attr("class", "tooltip")
