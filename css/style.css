@@ -46,6 +46,7 @@ body {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #111111;
     --bs-gradient: none;
+    --bs-btn-bg: #FFFFFF;
 }
 
 .tooltip {

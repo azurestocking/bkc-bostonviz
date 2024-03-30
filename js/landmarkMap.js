@@ -1,15 +1,13 @@
 class LandmarkMap {
 
-	constructor(parentElement, deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks, coord) {
+	constructor(parentElement, officialLandmarks, yourLandmarks, coord) {
 		this.parentElement = parentElement;
-		this.deniedLandmarks = deniedLandmarks;
-		this.pendingLandmarks = pendingLandmarks;
-		this.approvedLandmarks = approvedLandmarks;
+		this.officialLandmarks = officialLandmarks;
 		this.yourLandmarks = yourLandmarks;
 		this.coord = coord;
 		this.markers = [];
 
-		console.log("fetched: ", this.yourLandmarks);
+		console.log("Fetched: ", this.yourLandmarks);
 
 		this.initVis();
 	}
@@ -60,56 +58,50 @@ class LandmarkMap {
 		vis.markers.forEach(marker => vis.map.removeLayer(marker));
 		vis.markers = [];
 
-		// filter out the selected landmarks
-		const createMarkers = (landmarks, category) => {
+		const createMarkers = (landmarks, icon, category) => {
 			landmarks.forEach(landmark => {
-				let coordinate = landmark.coordinate.split(",").map(Number);
-				let icon = vis[`${category}Icon`];
-
-				let marker = L.marker(coordinate, { icon: icon }).addTo(vis.map)
-					.on("mouseover", function (event) {
-						vis.tooltip.transition()
-							.duration(200)
-							.style("opacity", 0.9);
-
-						let tooltipContent = `<b>${category.charAt(0).toUpperCase() + category.slice(1)}</b><br/>`;
-						Object.keys(landmark).forEach(key => {
-							tooltipContent += `${key}: ${landmark[key]}<br/>`;
+				if (landmark.coordinate) {
+					let coordinate = landmark.coordinate.split(",").map(d => parseFloat(d.trim()));
+					let marker = L.marker(coordinate, {icon: icon})
+						.addTo(vis.map)
+						.on("mouseover", function (event) {
+							vis.tooltip.style("opacity", 0.9)
+								.html(() => {
+									let tooltipContent = `<b>INFO</b><br/>`;
+									Object.keys(landmark).forEach(key => {
+										tooltipContent += `${key}: ${landmark[key]}<br/>`;
+									});
+									return tooltipContent;
+								})
+								.style("left", (event.originalEvent.pageX + 10) + "px")
+								.style("top", (event.originalEvent.pageY + 10) + "px")
+								.style("visibility", "visible");
+						})
+						.on("mouseout", function () {
+							vis.tooltip.style("opacity", 0)
+								.style("visibility", "hidden");
 						});
 
-						let mouseEvent = event.originalEvent;
-						vis.tooltip.html(tooltipContent)
-							.style("left", (mouseEvent.pageX + 10) + "px")
-							.style("top", (mouseEvent.pageY + 10) + "px")
-							.style("visibility", "visible");
-					})
-					.on("mouseout", function () {
-						vis.tooltip.transition()
-							.duration(500)
-							.style("opacity", 0)
-							.end()
-							.then(() => vis.tooltip.style("visibility", "hidden"));
-					});
-
-				vis.markers.push(marker);
+					vis.markers.push(marker);
+				}
 			});
 		};
 
 		// show all landmarks by default
 		if (selectedCategory === "all") {
-			createMarkers(vis.approvedLandmarks, "approved");
-			createMarkers(vis.pendingLandmarks, "pending");
-			createMarkers(vis.deniedLandmarks, "denied");
+			createMarkers(vis.officialLandmarks.approvedLandmarks, vis.approvedIcon);
+			createMarkers(vis.officialLandmarks.pendingLandmarks, vis.pendingIcon);
+			createMarkers(vis.officialLandmarks.deniedLandmarks, vis.deniedIcon);
 		} else {
 			switch (selectedCategory) {
 				case "approved":
-					createMarkers(vis.approvedLandmarks, "approved");
+					createMarkers(vis.officialLandmarks.approvedLandmarks, vis.approvedIcon);
 					break;
 				case "pending":
-					createMarkers(vis.pendingLandmarks, "pending");
+					createMarkers(vis.officialLandmarks.pendingLandmarks, vis.pendingIcon);
 					break;
 				case "denied":
-					createMarkers(vis.deniedLandmarks, "denied");
+					createMarkers(vis.officialLandmarks.deniedLandmarks, vis.deniedIcon);
 					break;
 			}
 		}

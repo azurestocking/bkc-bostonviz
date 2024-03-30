@@ -19,9 +19,14 @@ Promise.all([
             return { yourLandmarks: [] };
         })
 ]).then(results => {
-    renderMap(results[0].deniedLandmarks, results[0].pendingLandmarks, results[1].approvedLandmarks, results[2].yourLandmarks);
+    let officialLandmarks = {
+        deniedLandmarks: results[0].deniedLandmarks,
+        pendingLandmarks: results[0].pendingLandmarks,
+        approvedLandmarks: results[1].approvedLandmarks
+    };
+    renderMap(officialLandmarks, results[2].yourLandmarks);
 });
 
-function renderMap(deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks) {
-    landmarkMap = new LandmarkMap("landmark-map", deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks, [42.360082, -71.058880]);
+function renderMap(officialLandmarks, yourLandmarks) {
+    landmarkMap = new LandmarkMap("landmark-map", officialLandmarks, yourLandmarks, [42.360082, -71.058880]);
 }
