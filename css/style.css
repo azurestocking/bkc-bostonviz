@@ -90,3 +90,9 @@ h1 {
     line-height: 1;
     text-align: center;
 }
+
+#qrcode img {
+    border: 1.5px solid #111111;
+    width: 150px;
+    padding: 0px;
+}
