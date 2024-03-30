@@ -13,7 +13,22 @@ body {
 }
 
 #nav {
-    padding: 2rem;
+    background-color: white;
+    width: 25vw;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+#toggle {
+    width: 30vw;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }
 
 .btn-outline-primary {
@@ -56,4 +71,9 @@ body {
 .btn-group-vertical {
     padding-right: 0px;
     padding-left: 0px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
 }

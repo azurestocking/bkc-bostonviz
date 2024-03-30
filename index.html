@@ -20,28 +20,30 @@
 
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <div id="nav" class="col-2 left">
-                    <div class="row">
-                        <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-                            <input type="radio" class="btn-check" name="vbtn-radio" id="official-landmarks" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary" for="official-landmarks">Official Landmarks</label>
-                            <input type="radio" class="btn-check" name="vbtn-radio" id="your-landmarks" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="your-landmarks">Your Landmarks</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <select id="select-landmark" class="form-select" aria-label="layers of landmarks">
-                            <option selected value="all">All Landmarks</option>
-                            <option value="approved">Approved Landmarks</option>
-                            <option value="pending">Pending Landmarks</option>
-                            <option value="denied">Denied Landmarks</option>
-                        </select>
-                    </div>
+            <div class="col">
+                <div id="nav" class="row">
+                    <h1 class="row">Official Landmarks</h1>
+                    <p class="row">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <select id="select-landmark" class="form-select" aria-label="layers of landmarks">
+                        <option selected value="all">All Landmarks</option>
+                        <option value="approved">Approved Landmarks</option>
+                        <option value="pending">Pending Landmarks</option>
+                        <option value="denied">Denied Landmarks</option>
+                    </select>
                 </div>
-                <div class="col-10 right">
-                    <div class="row">
-                        <div id="landmark-map"></div>
+
+                <div class="row">
+                    <div id="landmark-map"></div>
+                </div>
+
+                <div class="row">
+                    <div id="toggle" class="btn-group" role="group" aria-label="Vertical radio toggle button group">
+                        <input type="radio" class="btn-check" name="vbtn-radio" id="official-landmarks" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="official-landmarks">Official Landmarks</label>
+                        <input type="radio" class="btn-check" name="vbtn-radio" id="your-landmarks" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="your-landmarks">Your Landmarks</label>
                     </div>
                 </div>
             </div>

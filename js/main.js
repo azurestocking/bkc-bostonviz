@@ -8,11 +8,20 @@ Promise.all([
     }),
     d3.csv("data/building_data_cleaned.csv").then(data => {
         return { approvedLandmarks: data };
-    })
+    }),
+    fetch('https://lobs.boston/bostonlandmark/fetch_yourlandmark.php')
+        .then(response => response.json())
+        .then(data => {
+            return { yourLandmarks: data };
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return { yourLandmarks: [] };
+        })
 ]).then(results => {
-    renderMap(results[0].deniedLandmarks, results[0].pendingLandmarks, results[1].approvedLandmarks);
+    renderMap(results[0].deniedLandmarks, results[0].pendingLandmarks, results[1].approvedLandmarks, results[2].yourLandmarks);
 });
 
-function renderMap(deniedLandmarks, pendingLandmarks, approvedLandmarks) {
-    landmarkMap = new LandmarkMap("landmark-map", deniedLandmarks, pendingLandmarks, approvedLandmarks, [42.360082, -71.058880]);
+function renderMap(deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks) {
+    landmarkMap = new LandmarkMap("landmark-map", deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks, [42.360082, -71.058880]);
 }

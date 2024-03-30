@@ -1,10 +1,11 @@
 class LandmarkMap {
 
-	constructor(parentElement, deniedLandmarks, pendingLandmarks, approvedLandmarks, coord) {
+	constructor(parentElement, deniedLandmarks, pendingLandmarks, approvedLandmarks, yourLandmarks, coord) {
 		this.parentElement = parentElement;
 		this.deniedLandmarks = deniedLandmarks;
 		this.pendingLandmarks = pendingLandmarks;
 		this.approvedLandmarks = approvedLandmarks;
+		this.yourLandmarks = yourLandmarks;
 		this.coord = coord;
 		this.markers = [];
 
@@ -110,6 +111,11 @@ class LandmarkMap {
 					break;
 			}
 		}
+
+
+
+		// heatmap
+
 	}
 
 }
