@@ -14,7 +14,7 @@ body {
 
 #nav {
     background-color: white;
-    width: 25vw;
+    width: 300px;
     position: absolute;
     top: 2rem;
     right: 3rem;
@@ -23,7 +23,7 @@ body {
 }
 
 #toggle {
-    width: 30vw;
+    width: 350px;
     position: absolute;
     bottom: 3rem;
     left: 50%;

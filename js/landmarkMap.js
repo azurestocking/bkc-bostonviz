@@ -9,6 +9,8 @@ class LandmarkMap {
 		this.coord = coord;
 		this.markers = [];
 
+		console.log("fetched: ", this.yourLandmarks);
+
 		this.initVis();
 	}
 
@@ -111,10 +113,6 @@ class LandmarkMap {
 					break;
 			}
 		}
-
-
-
-		// heatmap
 
 	}
 
