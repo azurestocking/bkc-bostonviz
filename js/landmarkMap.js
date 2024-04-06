@@ -64,32 +64,38 @@ class LandmarkMap {
 		// display writeup
 		if (selectedCategory === "official-landmarks") {
 			document.getElementById('nav').innerHTML = `
-				<p class="d-inline-flex gap-1">
-				  <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-					Official Landmarks
-				  </button>
-				</p>
-				<div class="collapse show" id="collapseExample">
-				    <div class="card card-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				    </div>
+				<div class="card">
+					<div class="card-body">
+						<p class="d-inline-flex gap-1">
+						    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							    Click to View
+						    </button>
+						</p>
+						<div class="collapse show" id="collapseExample">
+							<p></p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</div>
+					</div>
 				</div>
             `;
 		} else if (selectedCategory === "your-landmarks") {
 			document.getElementById('nav').innerHTML = `
-				<p class="d-inline-flex gap-1">
-				  <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-					Your Landmarks
-				  </button>
-				</p>
-				<div class="collapse show" id="collapseExample">
-				    <div class="card card-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				    <hr>
-				    <div id="qrcode">
-						<img src="img/qr-code.jpg" alt="QR Code">
+				<div class="card">
+					<div class="card-body">
+						<p class="d-inline-flex gap-1">
+						    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							    Click to View
+						    </button>
+						</p>
+						<div class="collapse show" id="collapseExample">
+							<p></p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							<hr>
+							<div id="qrcode">
+								<img src="img/qr-code.jpg" alt="QR Code">
+							</div>
+						</div>
 					</div>
-				    </div>
 				</div>
             `;
 		}

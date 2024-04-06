@@ -26,6 +26,14 @@ body {
     z-index: 1000;
 }
 
+.card {
+    --bs-card-spacer-x: 0rem;
+}
+
+p.d-inline-flex.gap-1{
+    margin-bottom: 0;
+}
+
 #toggle {
     width: 350px;
 }
