@@ -15,7 +15,13 @@ class LandmarkMap {
 	initVis() {
 		let vis = this;
 
-		vis.map = L.map(vis.parentElement).setView(vis.coord, 13);
+		vis.map = L.map(vis.parentElement).setView(vis.coord, 12);
+
+		let southWest = L.latLng(42.232221, -71.188151),
+			northEast = L.latLng(42.449445, -70.918299),
+			bounds = L.latLngBounds(southWest, northEast);
+
+		vis.map.setMaxBounds(bounds);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clud04f3c02hi01qqcln59pcq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
