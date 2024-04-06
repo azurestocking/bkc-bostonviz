@@ -16,19 +16,27 @@ body {
     background-color: white;
     width: 300px;
     position: absolute;
-    top: 2rem;
-    right: 3rem;
+    top: 12px;
+    right: 1.5rem;
     padding: 1rem;
     z-index: 1000;
 }
 
 #toggle {
     width: 350px;
+}
+
+#toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    display: flex;
+    gap: 10px;
 }
 
 .btn-outline-primary {

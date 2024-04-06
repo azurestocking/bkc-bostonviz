@@ -18,8 +18,8 @@ class LandmarkMap {
 		// define map
 		vis.map = L.map(vis.parentElement).setView(vis.coord, 12);
 
-		let southWest = L.latLng(42.232221, -71.188151),
-			northEast = L.latLng(42.449445, -70.918299),
+		let southWest = L.latLng(41.579061, -71.940924),
+			northEast = L.latLng(43.533192, -70.177619),
 			bounds = L.latLngBounds(southWest, northEast);
 
 		vis.map.setMaxBounds(bounds);
@@ -169,7 +169,7 @@ class LandmarkMap {
 
 		vis.heatLayer = L.heatLayer(landmarkCoord, {
 			radius: 50,
-			gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+			// gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
 		}).addTo(vis.map);
 
 		if (vis.heatLayer) {
@@ -178,6 +178,10 @@ class LandmarkMap {
 				canvas.style.opacity = 0.8;
 			}
 		}
+
+		document.getElementById('refresh').addEventListener('click', () => {
+			window.location.reload();
+		});
 
 	}
 
