@@ -7,8 +7,6 @@ class LandmarkMap {
 		this.coord = coord;
 		this.markers = [];
 
-		console.log("Fetched: ", this.yourLandmarks);
-
 		this.initVis();
 	}
 
@@ -142,6 +140,36 @@ class LandmarkMap {
 		}
 
 		// display heatmap
+		if (vis.heatLayer) {
+			vis.map.removeLayer(vis.heatLayer);
+			vis.heatLayer = null;
+		}
+
+		const getCoord = (landmarks) => {
+			return landmarks.map(landmark => [landmark.lat, landmark.lon]);
+		};
+
+		let landmarkCoord = [];
+
+		if (selectedCategory === "official-landmarks") {
+			landmarkCoord = getCoord(vis.officialLandmarks.approvedLandmarks)
+				.concat(getCoord(vis.officialLandmarks.pendingLandmarks))
+				.concat(getCoord(vis.officialLandmarks.deniedLandmarks));
+		} else if (selectedCategory === "your-landmarks") {
+			landmarkCoord = getCoord(vis.yourLandmarks);
+		}
+
+		vis.heatLayer = L.heatLayer(landmarkCoord, {
+			radius: 50,
+			gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+		}).addTo(vis.map);
+
+		if (vis.heatLayer) {
+			let canvas = vis.heatLayer._canvas;
+			if (canvas) {
+				canvas.style.opacity = 0.8;
+			}
+		}
 
 	}
 
