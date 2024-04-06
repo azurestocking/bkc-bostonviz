@@ -16,13 +16,19 @@ class LandmarkMap {
 		let vis = this;
 
 		// define map
-		vis.map = L.map(vis.parentElement).setView(vis.coord, 12);
+		vis.map = L.map(vis.parentElement, {
+			center: vis.coord,
+			zoom: 12,
+			zoomControl: false
+		});
 
 		let southWest = L.latLng(41.579061, -71.940924),
 			northEast = L.latLng(43.533192, -70.177619),
 			bounds = L.latLngBounds(southWest, northEast);
 
 		vis.map.setMaxBounds(bounds);
+
+
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clud04f3c02hi01qqcln59pcq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
@@ -58,22 +64,32 @@ class LandmarkMap {
 		// display writeup
 		if (selectedCategory === "official-landmarks") {
 			document.getElementById('nav').innerHTML = `
-                <p class="row">
+				<p class="d-inline-flex gap-1">
+				  <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					Official Landmarks
+				  </button>
+				</p>
+				<div class="collapse show" id="collapseExample">
+				    <div class="card card-body">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <div class="row">
-                	🔵　Approved<br>
-                	🟡　Pending<br>
-                	🔴　Denied
+				    </div>
 				</div>
             `;
 		} else if (selectedCategory === "your-landmarks") {
 			document.getElementById('nav').innerHTML = `
-                <p class="row">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <div id="qrcode" class="row">
-                	<img src="img/qr-code.jpg" alt="QR Code">
+				<p class="d-inline-flex gap-1">
+				  <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					Your Landmarks
+				  </button>
+				</p>
+				<div class="collapse show" id="collapseExample">
+				    <div class="card card-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				    <hr>
+				    <div id="qrcode">
+						<img src="img/qr-code.jpg" alt="QR Code">
+					</div>
+				    </div>
 				</div>
             `;
 		}
