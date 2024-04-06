@@ -28,5 +28,5 @@ Promise.all([
 });
 
 function renderMap(officialLandmarks, yourLandmarks) {
-    landmarkMap = new LandmarkMap("landmark-map", officialLandmarks, yourLandmarks, [42.360082, -71.058880]);
+    landmarkMap = new LandmarkMap("landmark-map", officialLandmarks, yourLandmarks, [42.312380, -71.095502]);
 }

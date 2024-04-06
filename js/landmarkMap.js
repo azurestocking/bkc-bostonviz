@@ -15,6 +15,7 @@ class LandmarkMap {
 	initVis() {
 		let vis = this;
 
+		// define map
 		vis.map = L.map(vis.parentElement).setView(vis.coord, 12);
 
 		let southWest = L.latLng(42.232221, -71.188151),
@@ -29,10 +30,11 @@ class LandmarkMap {
 		}).addTo(vis.map);
 
 		// define icons
-		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔵', iconSize: [20, 20] });
-		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: '🟡', iconSize: [20, 20] });
-		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔴', iconSize: [20, 20] });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔵' });
+		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: '🟡' });
+		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔴' });
 
+		// define tooltip
 		vis.tooltip = d3.select("body").append("div")
 			.attr("class", "tooltip")
 			.style("opacity", 0);
