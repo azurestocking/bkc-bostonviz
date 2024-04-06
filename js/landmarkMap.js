@@ -68,7 +68,7 @@ class LandmarkMap {
 					<div class="card-body">
 						<p class="d-inline-flex gap-1">
 						    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-							    Click to View
+							    Click to Collapse/Show
 						    </button>
 						</p>
 						<div class="collapse show" id="collapseExample">
@@ -84,7 +84,7 @@ class LandmarkMap {
 					<div class="card-body">
 						<p class="d-inline-flex gap-1">
 						    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-							    Click to View
+							    Click to Collapse/Show
 						    </button>
 						</p>
 						<div class="collapse show" id="collapseExample">

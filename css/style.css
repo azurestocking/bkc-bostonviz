@@ -24,6 +24,7 @@ body {
     position: absolute;
     top: 68px;
     z-index: 1000;
+    left: 1.5rem;
 }
 
 .card {
