@@ -68,7 +68,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Accordion Item #1
+								<b>STEP 1</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -80,7 +80,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Accordion Item #2
+								<b>STEP 2</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -92,7 +92,7 @@ class LandmarkMap {
 				    <div class="accordion-item">
 				        <h2 class="accordion-header">
 						  	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								Accordion Item #3
+								<b>STEP 3</b>
 						  	</button>
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -109,7 +109,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Accordion Item #1
+								<b>STEP 1</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -121,7 +121,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Accordion Item #2
+								<b>STEP 2</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -133,7 +133,7 @@ class LandmarkMap {
 				    <div class="accordion-item">
 				        <h2 class="accordion-header">
 						  	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								Accordion Item #3
+								<b>STEP 3</b>
 						  	</button>
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
