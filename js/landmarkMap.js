@@ -30,15 +30,15 @@ class LandmarkMap {
 
 
 
-		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clud04f3c02hi01qqcln59pcq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
+		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clur3p48l009d01p41tbdgzs6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
 
 		// define icons
-		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔵' });
-		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: '🟡' });
-		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: '🔴' });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-approved.svg' />" });
+		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-pending.svg' />" });
+		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-denied.svg' />" });
 
 		// define tooltip
 		vis.tooltip = d3.select("body").append("div")
