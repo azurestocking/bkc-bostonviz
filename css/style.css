@@ -118,10 +118,9 @@ h1 {
     font-weight: bold;
 }
 
-.emoji-icon-1 {
-    font-size: 16px;
-    line-height: 1;
-    text-align: center;
+.emoji-icon-1 img {
+    width: 20px;
+    height: 20px;
 }
 
 .emoji-icon-2 {

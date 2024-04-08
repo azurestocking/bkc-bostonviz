@@ -36,9 +36,9 @@ class LandmarkMap {
 		}).addTo(vis.map);
 
 		// define icons
-		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-approved.svg' />" });
-		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-pending.svg' />" });
-		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-denied.svg' />" });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-approved.png' />" });
+		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-pending.png' />" });
+		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-denied.png' />" });
 
 		// define tooltip
 		vis.tooltip = d3.select("body").append("div")
