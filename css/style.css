@@ -21,8 +21,11 @@ body {
     --bs-btn-disabled-color: #467056;
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #467056;
-    --bs-btn-border-radius: none;
     --bs-gradient: none;
+}
+
+.btn-group>:not(.btn-check:first-child)+.btn {
+    margin-left: 0;
 }
 
 .accordion {
