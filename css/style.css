@@ -10,7 +10,145 @@ body {
 .btn-outline-primary {
     --bs-btn-color: #467056;
     --bs-btn-border-color: #467056;
+    --bs-btn-hover-color: #FFF;body {
+    font-family: "Poppins", sans-serif;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #467056;
+    --bs-btn-border-color: transparent;
     --bs-btn-hover-color: #FFF;
+    --bs-btn-hover-bg: #467056;
+    --bs-btn-hover-border-color: #467056;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #FFF;
+    --bs-btn-active-bg: #467056;
+    --bs-btn-active-border-color: #467056;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #467056;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #467056;
+    --bs-btn-border-radius: none;
+    --bs-gradient: none;
+}
+
+.accordion {
+    --bs-accordion-border-color: transparent;
+    --bs-accordion-color: #467056;
+    --bs-accordion-bg: #aedcc0;
+    --bs-accordion-btn-color: #467056;
+    --bs-accordion-active-color: #FFF;
+    --bs-accordion-active-bg: #467056;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0 rgba(70, 112, 86, 0.25);
+    --bs-accordion-border-radius: none;
+    --bs-accordion-inner-border-radius: none;
+}
+
+#landmark-map {
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#sidebar {
+    background-color: transparent;
+    width: 360px;
+    position: absolute;
+    padding-top: 12px;
+    z-index: 1000;
+}
+
+@media (max-width: 430px) {
+    #sidebar {
+        width: 100%;
+    }
+}
+
+.card {
+    --bs-card-spacer-x: 0rem;
+}
+
+p.d-inline-flex.gap-1{
+    margin-bottom: 0;
+}
+
+#toggle {
+    width: 350px;
+}
+
+#toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-outline-primary {
+    --bs-btn-bg: #aedcc0;
+}
+
+.tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 12px;
+}
+
+#title {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* toggle */
+.btn-group-vertical {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.emoji-icon-1 img {
+    width: 20px;
+    height: 20px;
+}
+
+.emoji-icon-2 {
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+}
+
+#collapseOne img {
+    border: 1.5px solid #111111;
+    width: 150px;
+    padding: 0px;
+}
     --bs-btn-hover-bg: #467056;
     --bs-btn-hover-border-color: #467056;
     --bs-btn-focus-shadow-rgb: 13, 110, 253;
