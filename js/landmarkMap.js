@@ -36,9 +36,9 @@ class LandmarkMap {
 		}).addTo(vis.map);
 
 		// define icons
-		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/Map elements-04.svg' />" });
-		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/Map elements-02.svg' />" });
-		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/Map elements-06.svg' />" });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-green.png' />" });
+		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-yellow.png' />" });
+		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-red.png' />" });
 
 		// define tooltip
 		vis.tooltip = d3.select("body").append("div")
@@ -232,10 +232,10 @@ class LandmarkMap {
 		}
 
 		// display heatmap
-		// if (vis.heatLayer) {
-		// 	vis.map.removeLayer(vis.heatLayer);
-		// 	vis.heatLayer = null;
-		// }
+		if (vis.heatLayer) {
+		 	vis.map.removeLayer(vis.heatLayer);
+		 	vis.heatLayer = null;
+		}
 
 		const getCoord = (landmarks) => {
 			return landmarks.map(landmark => [landmark.lat, landmark.lon]);
@@ -251,17 +251,17 @@ class LandmarkMap {
 			landmarkCoord = getCoord(vis.yourLandmarks);
 		}
 
-		// vis.heatLayer = L.heatLayer(landmarkCoord, {
-		// 	radius: 50,
-		// 	// gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
-		// }).addTo(vis.map);
+		vis.heatLayer = L.heatLayer(landmarkCoord, {
+		    radius: 50,
+		    // gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+		}).addTo(vis.map);
 
-		// if (vis.heatLayer) {
-		// 	let canvas = vis.heatLayer._canvas;
-		// 	if (canvas) {
-		// 		canvas.style.opacity = 0.8;
-		// 	}
-		// }
+		if (vis.heatLayer) {
+			let canvas = vis.heatLayer._canvas;
+				if (canvas) {
+					canvas.style.opacity = 0.8;
+				}
+		}
 
 		document.getElementById('refresh').addEventListener('click', () => {
 			window.location.reload();
