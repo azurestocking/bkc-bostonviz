@@ -84,8 +84,17 @@ p.d-inline-flex.gap-1{
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    display: flex;
     gap: 10px;
+}
+
+@media (max-width: 375px) {
+    .btn {
+        --bs-btn-font-size: 0.8rem;
+    }
+    .btn svg {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
 }
 
 .btn-outline-primary {
