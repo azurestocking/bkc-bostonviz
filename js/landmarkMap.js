@@ -159,48 +159,52 @@ class LandmarkMap {
 						let marker = L.marker(coordinate, {icon: icon})
 							.addTo(vis.map)
 							.on("mouseover", function (event) {
-								vis.tooltip.style("opacity", 0.9)
+								vis.tooltip.style("opacity", 1)
 									.html(() => {
 										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl
 										switch (status) {
 											case "approved":
-										    		encodedAddress = encodeURIComponent(landmark.full_address);
-			                                    					streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+												encodedAddress = encodeURIComponent(landmark.full_address);
+												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
-												tooltipContent = `<b>${landmark.assessor_description}</b><br/>Approved<br/>
-																	${landmark.full_address}<br/>
-																	Year Built: ${Math.floor(landmark.yr_built)}<br/>
-																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
+												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
+                                                                  <b>${landmark.assessor_description}</b><br/>
+																  <b>${landmark.full_address}</b><br/>
+                                                                  Approved, Built in ${Math.floor(landmark.yr_built)}<br/>`;
 												break;
 											case "pending":
-											    	fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
-						                                                encodedLocation = encodeURIComponent(fullLocation);
-						                                                streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+												fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
+												encodedLocation = encodeURIComponent(fullLocation);
+												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
-												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>Pending, ${landmark.DETAILS}<br/>
-																	${landmark.full_address}<br/>
-																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
+												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
+                                                                  <b>${landmark["NAME OF PROPERTY"]}</b><br/>
+																  <b>${landmark.full_address}</b><br/>
+                                                                  Pending, ${landmark.DETAILS}<br/>`;
 												break;
 											case "denied":
-											    	fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
-						                                                encodedLocation = encodeURIComponent(fullLocation);
-						                                                streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
-												
-												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>${landmark.DETAILS}<br/>
-																	${landmark.full_address}<br/>
-																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
+												fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
+												encodedLocation = encodeURIComponent(fullLocation);
+												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+
+												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+                                                                  <b>${landmark["NAME OF PROPERTY"]}</b><br/>
+                                                                  <b>${landmark.full_address}</b><br/>
+																  Denied, ${landmark.DETAILS}<br/>`;
 												break;
 											default:
 												tooltipContent = ``
 										}
-										// Object.keys(landmark).forEach(key => {
-										// 	tooltipContent += `${key}: ${landmark[key]}<br/>`;
-										// });
 										return tooltipContent;
 									})
 									.style("left", (event.originalEvent.pageX + 10) + "px")
 									.style("top", (event.originalEvent.pageY + 10) + "px")
-									.style("visibility", "visible");
+									.style("visibility", "visible")
+									.style("padding", "18px")
+									.style("background-color", "#A1DDBE")
+									.style("color", "#106F63")
+									.style("font-family", "Poppins, sans-serif")
+									.style("font-size", "14px");
 							})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
@@ -220,7 +224,7 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.lat && landmark.lon) {
 						let coordinate = [parseFloat(landmark.lat), parseFloat(landmark.lon)];
-					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+					    let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
@@ -228,13 +232,18 @@ class LandmarkMap {
 							marker.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 0.9)
 									.html(() => {
-										let tooltipContent = `<b>${landmark.name}</b><br/>${landmark.story}<br/>
-												<img src="${streetViewImageUrl}" alt="Street View Image">`;
+										let tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+                            										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
 										return tooltipContent;
 									})
 									.style("left", (event.originalEvent.pageX + 10) + "px")
 									.style("top", (event.originalEvent.pageY + 10) + "px")
-									.style("visibility", "visible");
+									.style("visibility", "visible")
+									.style("padding", "18px")
+									.style("background-color", "#A1DDBE")
+									.style("color", "#106F63")
+									.style("font-family", "Poppins, sans-serif")
+									.style("font-size", "14px");
 							})
 								.on("mouseout", function () {
 									vis.tooltip.style("opacity", 0)
@@ -271,15 +280,17 @@ class LandmarkMap {
 
 		vis.heatLayer = L.heatLayer(landmarkCoord, {
 		    radius: 50,
-		    // gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+		    gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
 		}).addTo(vis.map);
 
+		/*
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
 					canvas.style.opacity = 0.8;
 				}
 		}
+		 */
 
 		document.getElementById('refresh').addEventListener('click', () => {
 			window.location.reload();
