@@ -224,7 +224,7 @@ class LandmarkMap {
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
-						if (landmark.name && landmark.story) {
+						if (landmark.name || landmark.story) {
 							marker.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 0.9)
 									.html(() => {
