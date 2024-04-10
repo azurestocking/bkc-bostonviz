@@ -155,27 +155,37 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.coordinate) {
 						let coordinate = landmark.coordinate.split(",").map(d => parseFloat(d.trim()));
-					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=200x200&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 						let marker = L.marker(coordinate, {icon: icon})
 							.addTo(vis.map)
 							.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 0.9)
 									.html(() => {
-										let tooltipContent = ""
+										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl
 										switch (status) {
 											case "approved":
+										    		encodedAddress = encodeURIComponent(landmark.full_address);
+			                                    					streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+
 												tooltipContent = `<b>${landmark.assessor_description}</b><br/>Approved<br/>
 																	${landmark.full_address}<br/>
 																	Year Built: ${Math.floor(landmark.yr_built)}<br/>
 																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
 												break;
 											case "pending":
+											    	fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
+						                                                encodedLocation = encodeURIComponent(fullLocation);
+						                                                streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+
 												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>Pending, ${landmark.DETAILS}<br/>
 																	${landmark.full_address}<br/>
 																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
 												break;
 											case "denied":
+											    	fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
+						                                                encodedLocation = encodeURIComponent(fullLocation);
+						                                                streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+												
 												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>${landmark.DETAILS}<br/>
 																	${landmark.full_address}<br/>
 																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
