@@ -155,6 +155,8 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.coordinate) {
 						let coordinate = landmark.coordinate.split(",").map(d => parseFloat(d.trim()));
+					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=200x200&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+
 						let marker = L.marker(coordinate, {icon: icon})
 							.addTo(vis.map)
 							.on("mouseover", function (event) {
@@ -165,15 +167,18 @@ class LandmarkMap {
 											case "approved":
 												tooltipContent = `<b>${landmark.assessor_description}</b><br/>Approved<br/>
 																	${landmark.full_address}<br/>
-																	Year Built: ${Math.floor(landmark.yr_built)}`;
+																	Year Built: ${Math.floor(landmark.yr_built)}<br/>
+																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
 												break;
 											case "pending":
 												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>Pending, ${landmark.DETAILS}<br/>
-																	${landmark.full_address}`;
+																	${landmark.full_address}<br/>
+																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
 												break;
 											case "denied":
 												tooltipContent = `<b>${landmark["NAME OF PROPERTY"]}</b><br/>${landmark.DETAILS}<br/>
-																	${landmark.full_address}`;
+																	${landmark.full_address}<br/>
+																	<img src="${streetViewImageUrl}" alt="Street View Image">`;
 												break;
 											default:
 												tooltipContent = ``
@@ -205,13 +210,16 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.lat && landmark.lon) {
 						let coordinate = [parseFloat(landmark.lat), parseFloat(landmark.lon)];
+					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=200x200&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
 						if (landmark.name && landmark.story) {
 							marker.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 0.9)
 									.html(() => {
-										let tooltipContent = `<b>${landmark.name}</b><br/>${landmark.story}`;
+										let tooltipContent = `<b>${landmark.name}</b><br/>${landmark.story}<br/>
+												<img src="${streetViewImageUrl}" alt="Street View Image">`;
 										return tooltipContent;
 									})
 									.style("left", (event.originalEvent.pageX + 10) + "px")
