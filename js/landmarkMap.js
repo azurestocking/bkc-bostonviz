@@ -230,7 +230,7 @@ class LandmarkMap {
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
 						if (landmark.name || landmark.story) {
 							marker.on("mouseover", function (event) {
-								vis.tooltip.style("opacity", 0.9)
+								vis.tooltip.style("opacity", 1)
 									.html(() => {
 										let tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
                             										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
