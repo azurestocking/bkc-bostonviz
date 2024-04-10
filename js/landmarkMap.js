@@ -220,7 +220,7 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.lat && landmark.lon) {
 						let coordinate = [parseFloat(landmark.lat), parseFloat(landmark.lon)];
-					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=200x200&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+					        let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
