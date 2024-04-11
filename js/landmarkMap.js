@@ -228,28 +228,32 @@ class LandmarkMap {
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
-						if (landmark.name || landmark.story) {
-							marker.on("mouseover", function (event) {
-								vis.tooltip.style("opacity", 1)
-									.html(() => {
-										let tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                            										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
-										return tooltipContent;
-									})
-									.style("left", (event.originalEvent.pageX + 10) + "px")
-									.style("top", (event.originalEvent.pageY + 10) + "px")
-									.style("visibility", "visible")
-									.style("padding", "18px")
-									.style("background-color", "#A1DDBE")
-									.style("color", "#106F63")
-									.style("font-family", "Poppins, sans-serif")
-									.style("font-size", "14px");
-							})
-								.on("mouseout", function () {
-									vis.tooltip.style("opacity", 0)
-										.style("visibility", "hidden");
-								});
-						}
+
+						marker.on("mouseover", function (event) {
+							vis.tooltip.style("opacity", 1)
+								.html(() => {
+									let tooltipContent;
+									if (landmark.name || landmark.story) {
+								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+                        										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
+									} else {
+								    		tooltipContent = "New Landmark: Under Review";
+									}
+									return tooltipContent;
+								})
+								.style("left", (event.originalEvent.pageX + 10) + "px")
+								.style("top", (event.originalEvent.pageY + 10) + "px")
+								.style("visibility", "visible")
+								.style("padding", "18px")
+								.style("background-color", "#A1DDBE")
+								.style("color", "#106F63")
+								.style("font-family", "Poppins, sans-serif")
+								.style("font-size", "14px");
+						})
+							.on("mouseout", function () {
+								vis.tooltip.style("opacity", 0)
+									.style("visibility", "hidden");
+							});
 
 						vis.markers.push(marker);
 					}
