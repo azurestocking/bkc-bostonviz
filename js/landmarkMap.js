@@ -237,7 +237,7 @@ class LandmarkMap {
 								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
                         										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
 									} else {
-								    		tooltipContent = "New Landmark: Under Review";
+								    		tooltipContent = "<i>New Landmark: Under Review</i>";
 									}
 									return tooltipContent;
 								})
