@@ -28,7 +28,7 @@ class LandmarkMap {
 
 		vis.map.setMaxBounds(bounds);
 
-		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clur3p48l009d01p41tbdgzs6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
+		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/cluvrprdg004k01p60tmw0x8h/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
@@ -197,12 +197,7 @@ class LandmarkMap {
 									})
 									.style("left", (event.originalEvent.pageX + 10) + "px")
 									.style("top", (event.originalEvent.pageY + 10) + "px")
-									.style("visibility", "visible")
-									.style("padding", "18px")
-									.style("background-color", "#A1DDBE")
-									.style("color", "#106F63")
-									.style("font-family", "Poppins, sans-serif")
-									.style("font-size", "14px");
+									.style("visibility", "visible");
 							})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
@@ -241,12 +236,7 @@ class LandmarkMap {
 								})
 								.style("left", (event.originalEvent.pageX + 10) + "px")
 								.style("top", (event.originalEvent.pageY + 10) + "px")
-								.style("visibility", "visible")
-								.style("padding", "18px")
-								.style("background-color", "#A1DDBE")
-								.style("color", "#106F63")
-								.style("font-family", "Poppins, sans-serif")
-								.style("font-size", "14px");
+								.style("visibility", "visible");
 						})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
@@ -282,13 +272,13 @@ class LandmarkMap {
 
 		vis.heatLayer = L.heatLayer(landmarkCoord, {
 		    radius: 50,
-		    gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
+		    // gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
 		}).addTo(vis.map);
 
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
-					canvas.style.opacity = 0.8;
+					canvas.style.opacity = 0;
 				}
 		}
 
