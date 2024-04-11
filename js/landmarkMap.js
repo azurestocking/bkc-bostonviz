@@ -28,15 +28,13 @@ class LandmarkMap {
 
 		vis.map.setMaxBounds(bounds);
 
-
-
 		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clur3p48l009d01p41tbdgzs6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
 
 		// define icons
-		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-green.png' />" });
+		vis.approvedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-blue.png' />" });
 		vis.pendingIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-yellow.png' />" });
 		vis.deniedIcon = L.divIcon({ className: 'emoji-icon-1', html: "<img src='img/icon-red.png' />" });
 
@@ -287,14 +285,12 @@ class LandmarkMap {
 		    gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
 		}).addTo(vis.map);
 
-		/*
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
 					canvas.style.opacity = 0.8;
 				}
 		}
-		 */
 
 		document.getElementById('refresh').addEventListener('click', () => {
 			window.location.reload();
