@@ -13,9 +13,9 @@ body {
     --bs-btn-color: #33272a;
     --bs-btn-bg: #fffffe;
     --bs-btn-border-color: #33272a;
-    --bs-btn-hover-color: #fffffe;
+    --bs-btn-hover-color: #33272a;
     --bs-btn-hover-bg: #fffffe;
-    --bs-btn-hover-border-color: transparent;
+    --bs-btn-hover-border-color: #33272a;
     --bs-btn-active-color: #ff8ba7;
     --bs-btn-active-bg: #33272a;
     --bs-btn-active-border-color: transparent;
@@ -68,7 +68,7 @@ p.d-inline-flex.gap-1{
 }
 
 #toggle {
-    width: 340px;
+    width: 360px;
 }
 
 #toolbar {

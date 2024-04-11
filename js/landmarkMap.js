@@ -28,7 +28,7 @@ class LandmarkMap {
 
 		vis.map.setMaxBounds(bounds);
 
-		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/cluvrprdg004k01p60tmw0x8h/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
+		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/cluvukbjc005i01p64vdcawqd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
