@@ -16,7 +16,7 @@ body {
     --bs-btn-hover-color: #33272a;
     --bs-btn-hover-bg: #fffffe;
     --bs-btn-hover-border-color: #33272a;
-    --bs-btn-active-color: #ff8ba7;
+    --bs-btn-active-color: #fffffe;
     --bs-btn-active-bg: #33272a;
     --bs-btn-active-border-color: transparent;
     --bs-btn-active-shadow: none;
@@ -76,7 +76,7 @@ p.d-inline-flex.gap-1{
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -97,11 +97,19 @@ p.d-inline-flex.gap-1{
     position: absolute;
     width: auto;
     height: auto;
-    padding: 10px;
-    background: white;
     border-radius: 5px;
     pointer-events: none;
-    font-size: 12px;
+    border: 2px solid #594a4e;
+    max-width: 340px;
+    padding: 18px;
+    background-color: #faeee7;
+    color: #594a4e;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.tooltip img {
+    margin-bottom: 0.75rem;
 }
 
 #title {
@@ -118,7 +126,7 @@ p.d-inline-flex.gap-1{
     padding-left: 0px;
 }
 
-h1 {
+.headline {
     font-size: 24px;
     font-weight: bold;
 }
@@ -139,16 +147,3 @@ h1 {
     padding: 0px;
 }
 
-.tooltip {
-    border: 2px solid #33272a;
-    max-width: 340px;
-    padding: 18px;
-    background-color: #faeee7;
-    color: #33272a;
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-}
-
-.tooltip img {
-    margin-bottom: 0.75rem;
-}
