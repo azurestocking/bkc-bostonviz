@@ -7,6 +7,24 @@ body {
     padding: 0;
 }
 
+.bg-dark {
+    background-color: #33272a !important;
+}
+
+.p-4 {
+    padding: 1rem !important;
+}
+
+.text-body-emphasis {
+    font-size: 1.5rem;
+    color: #fffffe !important;
+}
+
+.text-body-secondary {
+    font-size: 1rem;
+    color: #faeee7 !important;
+}
+
 .btn-outline-primary {
     --bs-btn-font-weight: bold;
     --bs-btn-border-width: 2px;
@@ -32,6 +50,8 @@ body {
     --bs-accordion-active-color: #33272a;
     --bs-accordion-active-bg: #ff8ba7;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    --bs-accordion-icon-color: #0d0d0d;
+    --bs-accordion-icon-active-color: #0d0d0d;
 }
 
 #landmark-map {
@@ -39,9 +59,22 @@ body {
     height: 100vh;
 }
 
+.navbar {
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-toggler-padding-x: 0rem;
+    --bs-navbar-toggler-font-size: 1rem;
+}
+
+.navbar-dark {
+    --bs-navbar-toggler-border-color: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
 .navbar-brand {
     display: flex;
-    justify-content: center;
     width: 100%;
 }
 
@@ -127,8 +160,9 @@ p.d-inline-flex.gap-1{
 }
 
 .headline {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+    color: #fffffe;
 }
 
 .emoji-icon-1 img {

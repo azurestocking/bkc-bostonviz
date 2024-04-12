@@ -271,14 +271,14 @@ class LandmarkMap {
 		}
 
 		vis.heatLayer = L.heatLayer(landmarkCoord, {
-		    radius: 50,
+		    radius: 30,
 		    // gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
 		}).addTo(vis.map);
 
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
-					canvas.style.opacity = 0;
+					canvas.style.opacity = 0.8;
 				}
 		}
 
