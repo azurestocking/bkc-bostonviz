@@ -28,7 +28,7 @@ class LandmarkMap {
 
 		vis.map.setMaxBounds(bounds);
 
-		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/clur3p48l009d01p41tbdgzs6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
+		L.tileLayer('https://api.mapbox.com/styles/v1/chryslee/cluvukbjc005i01p64vdcawqd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hyeXNsZWUiLCJhIjoiY2x1MnRjOWl0MHNvNjJxbnZ3bmF3MWMzbyJ9.SlEk5odFwq2SeUxLZps3SQ', {
 			minZoom: 12,
 			attribution: '© <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a>'
 		}).addTo(vis.map);
@@ -66,7 +66,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>STEP 1</b>
+								<b>How to Apply</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -78,7 +78,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>STEP 2</b>
+								<b>Who Decides</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -88,16 +88,16 @@ class LandmarkMap {
 						</div>
 				    </div>
 				    <div class="accordion-item">
-				        <h2 class="accordion-header">
-						  	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								<b>STEP 3</b>
-						  	</button>
-					    </h2>
-					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-					  	  	<div class="accordion-body">
+						<h2 class="accordion-header">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+								<b>What Criteria</b>
+							</button>
+						</h2>
+						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					  	  	</div>
-					    </div>
+							</div>
+						</div>
 				    </div>
 				</div>
             `;
@@ -107,7 +107,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>STEP 1</b>
+								<b>How to Apply</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -119,7 +119,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>STEP 2</b>
+								<b>Who Decides</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -131,7 +131,7 @@ class LandmarkMap {
 				    <div class="accordion-item">
 				        <h2 class="accordion-header">
 						  	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								<b>STEP 3</b>
+								<b>What Criteria</b>
 						  	</button>
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -197,12 +197,7 @@ class LandmarkMap {
 									})
 									.style("left", (event.originalEvent.pageX + 10) + "px")
 									.style("top", (event.originalEvent.pageY + 10) + "px")
-									.style("visibility", "visible")
-									.style("padding", "18px")
-									.style("background-color", "#A1DDBE")
-									.style("color", "#106F63")
-									.style("font-family", "Poppins, sans-serif")
-									.style("font-size", "14px");
+									.style("visibility", "visible");
 							})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
@@ -241,12 +236,7 @@ class LandmarkMap {
 								})
 								.style("left", (event.originalEvent.pageX + 10) + "px")
 								.style("top", (event.originalEvent.pageY + 10) + "px")
-								.style("visibility", "visible")
-								.style("padding", "18px")
-								.style("background-color", "#A1DDBE")
-								.style("color", "#106F63")
-								.style("font-family", "Poppins, sans-serif")
-								.style("font-size", "14px");
+								.style("visibility", "visible");
 						})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
@@ -281,8 +271,8 @@ class LandmarkMap {
 		}
 
 		vis.heatLayer = L.heatLayer(landmarkCoord, {
-		    radius: 50,
-		    gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
+		    radius: 30,
+		    // gradient: {0.2: '#101c56', 0.4: '#2e4d9d', 0.6: '#4d99bd', 0.8: '#8ec8bc', 1: '#e2f1b8'}
 		}).addTo(vis.map);
 
 		if (vis.heatLayer) {
