@@ -184,15 +184,12 @@ class LandmarkMap {
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 												tooltipContent = isBonusLandmark ?
+													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
-                                                    <b>${landmark.assessor_description}</b><br/>
-													<b>${landmark.full_address}</b><br/>
-                                                    Approved, Built in ${Math.floor(landmark.yr_built)}<br/>
-													<button type="button" class="btn btn-primary bonus">View Story</button>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
-                                                    <b>${landmark.assessor_description}</b><br/>
-													<b>${landmark.full_address}</b><br/>
-                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}<br/>`;
+                                                    <b class="property-name">${landmark.assessor_description.toUpperCase()}</b><br/>
+													🏛️ ${landmark.full_address}<br/>
+                                                    📃 Built in ${Math.floor(landmark.yr_built)}<br/>
+													<div class="btn btn-primary tag">${status.charAt(0).toUpperCase()}${status.slice(1)}</div>`;
 												break;
 											case "pending":
 											case "denied":
@@ -201,15 +198,12 @@ class LandmarkMap {
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 												tooltipContent = isBonusLandmark ?
+													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                                                    <b>${landmark["NAME OF PROPERTY"]}</b><br/>
-                                                    <b>${landmark.full_address}</b><br/>
-													Denied, ${landmark.DETAILS}<br/>
-													<button type="button" class="btn btn-primary bonus">View Story</button>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                                                    <b>${landmark["NAME OF PROPERTY"]}</b><br/>
-                                                    <b>${landmark.full_address}</b><br/>
-													${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}<br/>`;
+                                                    <b class="property-name">${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
+                                                    🏛️ ${landmark.full_address}<br/>
+                                                    📃 ${landmark.DETAILS}<br/>
+													<div class="btn btn-primary tag">${status.charAt(0).toUpperCase()}${status.slice(1)}</div>`;
 												break;
 											default:
 												tooltipContent = ``
@@ -249,9 +243,10 @@ class LandmarkMap {
 									let tooltipContent;
 									if (landmark.name || landmark.story) {
 								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                        									 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
+                        									 <b>${landmark.name.toUpperCase()}</b><br/>
+                        									 😃 ${landmark.story}<br/>`;
 									} else {
-								    		tooltipContent = "<i>New Landmark: Under Review</i>";
+								    		tooltipContent = "<i>The New Proposal is Under Reviewed!</i>";
 									}
 									return tooltipContent;
 								})

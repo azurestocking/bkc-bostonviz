@@ -23,13 +23,14 @@ body {
     --bs-gradient: none;
 }
 
-.btn-primary.bonus {
+.btn-primary.tag {
     margin-top: 0.75rem;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #fffffe;
     background-color: #ff8ba7;
     border: none;
+    border-radius: 30px;
 }
 
 .accordion {
