@@ -163,14 +163,20 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.coordinate) {
 						let coordinate = landmark.coordinate.split(",").map(d => parseFloat(d.trim()));
+						let isBonusLandmark = vis.bonusLandmarks.some(bonus => bonus.PID === landmark["pid_long"] || bonus.PID === landmark["PID"]);
 
-						let marker = L.marker(coordinate, {icon: icon})
+						let finalIcon = L.divIcon({
+							className: icon.options.className + (isBonusLandmark ? ' glow' : ''),
+							html: icon.options.html,
+							iconSize: icon.options.iconSize
+						});
+
+						let marker = L.marker(coordinate, {icon: finalIcon})
 							.addTo(vis.map)
 							.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 1)
 									.html(() => {
 										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl;
-										let isBonusLandmark = vis.bonusLandmarks.some(bonus => bonus.PID === landmark["pid_long"] || bonus.PID === landmark["PID"]);
 
 										switch (status) {
 											case "approved":
@@ -293,7 +299,7 @@ class LandmarkMap {
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
-					canvas.style.opacity = 0.75;
+					canvas.style.opacity = 0.7;
 				}
 		}
 
