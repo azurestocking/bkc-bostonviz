@@ -61,8 +61,8 @@ body {
     --bs-modal-border-width: 2px;
     --bs-modal-header-border-color: #594a4e;
     --bs-modal-header-border-width: 2px;
-    --bs-modal-footer-border-color: none;
-    --bs-modal-footer-border-width: none;
+    --bs-modal-footer-border-color: #594a4e;
+    --bs-modal-footer-border-width: 2px;
 }
 
 .modal-body img {
