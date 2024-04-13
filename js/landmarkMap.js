@@ -166,7 +166,7 @@ class LandmarkMap {
 						let isBonusLandmark = vis.bonusLandmarks.some(bonus => bonus.PID === landmark["pid_long"] || bonus.PID === landmark["PID"]);
 
 						let finalIcon = L.divIcon({
-							className: icon.options.className + (isBonusLandmark ? ' glow' : ''),
+							className: icon.options.className + (isBonusLandmark ? ' bounce' : ''),
 							html: icon.options.html,
 							iconSize: icon.options.iconSize
 						});
