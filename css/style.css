@@ -23,14 +23,19 @@ body {
     --bs-gradient: none;
 }
 
-.btn-primary.tag {
+.btn-primary {
     margin-top: 0.75rem;
-    font-size: 12px;
     font-weight: bold;
     color: #fffffe;
     background-color: #ff8ba7;
     border: none;
-    border-radius: 30px;
+    --bs-btn-hover-color: #fffffe;
+    --bs-btn-hover-bg: #ff8ba7;
+    --bs-btn-hover-border-color: none;
+    --bs-btn-focus-shadow-rgb: #ff8ba7;
+    --bs-btn-active-color: #fffffe;
+    --bs-btn-active-bg: #594a4e;
+    --bs-btn-active-border-color: none;
 }
 
 .accordion {
@@ -47,6 +52,33 @@ body {
     --bs-accordion-btn-padding-x: 1rem;
     --bs-accordion-btn-icon-width: 1rem;
     --bs-accordion-body-padding-x: 1rem;
+}
+
+.modal {
+    --bs-modal-color: #594a4e;
+    --bs-modal-bg: #faeee7;
+    --bs-modal-border-color: #594a4e;
+    --bs-modal-border-width: 2px;
+    --bs-modal-header-border-color: #594a4e;
+    --bs-modal-header-border-width: 2px;
+    --bs-modal-footer-border-color: none;
+    --bs-modal-footer-border-width: none;
+}
+
+.modal-body img {
+    margin-bottom: 0.75rem;
+}
+
+.badge {
+    vertical-align: text-top;
+}
+
+.badge.text-bg-secondary {
+    background-color: silver !important;
+}
+
+h5.modal-title {
+    font-size: 1rem;
 }
 
 .title {

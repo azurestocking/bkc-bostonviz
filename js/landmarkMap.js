@@ -8,6 +8,8 @@ class LandmarkMap {
 		this.coord = coord;
 		this.markers = [];
 
+		console.log("bonus: ", this.bonusLandmarks);
+
 		this.initVis();
 	}
 
@@ -186,10 +188,9 @@ class LandmarkMap {
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
-                                                    <b class="property-name">${landmark.assessor_description.toUpperCase()}</b><br/>
-													🏛️ ${landmark.full_address}<br/>
-                                                    📃 Built in ${Math.floor(landmark.yr_built)}<br/>
-													<div class="btn btn-primary tag">${status.charAt(0).toUpperCase()}${status.slice(1)}</div>`;
+                                                    <b>${landmark.assessor_description.toUpperCase()}</b><br/>
+													${landmark.full_address}<br/>
+                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}</div>`;
 												break;
 											case "pending":
 											case "denied":
@@ -200,10 +201,9 @@ class LandmarkMap {
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                                                    <b class="property-name">${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
-                                                    🏛️ ${landmark.full_address}<br/>
-                                                    📃 ${landmark.DETAILS}<br/>
-													<div class="btn btn-primary tag">${status.charAt(0).toUpperCase()}${status.slice(1)}</div>`;
+                                                    <b>${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
+                                                    ${landmark.full_address}<br/>
+                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}</div>`;
 												break;
 											default:
 												tooltipContent = ``
@@ -217,6 +217,26 @@ class LandmarkMap {
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
 									.style("visibility", "hidden");
+							})
+							.on('click', function () {
+								if (isBonusLandmark) {
+									let bonusLandmark = vis.bonusLandmarks.find(bonus => bonus.PID === landmark["pid_long"] || bonus.PID === landmark["PID"]);
+
+									let modalTitle =
+										`<b>${bonusLandmark["NAME OF PROPERTY"]}</b> <span class="badge text-bg-secondary">${status.charAt(0).toUpperCase()}${status.slice(1)}</span></br>
+										${bonusLandmark.full_address}`;
+
+									let modalBodyContent =
+										`<img src="${bonusLandmark.image}" alt="Photos"></br>
+										${bonusLandmark.story}</div>`;
+
+									document.getElementById("modalTitle").innerHTML = modalTitle;
+									document.getElementById("modalBody").innerHTML = modalBodyContent;
+
+									let modalElement = document.getElementById("staticBackdrop");
+									let modalInstance = new bootstrap.Modal(modalElement);
+									modalInstance.show();
+								}
 							});
 
 						vis.markers.push(marker);
@@ -244,7 +264,7 @@ class LandmarkMap {
 									if (landmark.name || landmark.story) {
 								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
                         									 <b>${landmark.name.toUpperCase()}</b><br/>
-                        									 😃 ${landmark.story}<br/>`;
+                        									 ${landmark.story}<br/>`;
 									} else {
 								    		tooltipContent = "<i>The New Proposal is Under Reviewed!</i>";
 									}
