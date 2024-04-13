@@ -7,24 +7,6 @@ body {
     padding: 0;
 }
 
-.bg-dark {
-    background-color: #33272a !important;
-}
-
-.p-4 {
-    padding: 1rem !important;
-}
-
-.text-body-emphasis {
-    font-size: 1.5rem;
-    color: #fffffe !important;
-}
-
-.text-body-secondary {
-    font-size: 1rem;
-    color: #faeee7 !important;
-}
-
 .btn-outline-primary {
     --bs-btn-font-weight: bold;
     --bs-btn-border-width: 2px;
@@ -41,17 +23,42 @@ body {
     --bs-gradient: none;
 }
 
+.btn-primary.bonus {
+    margin-top: 0.75rem;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fffffe;
+    background-color: #ff8ba7;
+    border: none;
+}
+
 .accordion {
     --bs-accordion-border-width: 2px;
     --bs-accordion-border-color: #33272a;
     --bs-accordion-color: #33272a;
     --bs-accordion-bg: #fffffe;
-    --bs-accordion-btn-color: #0d0d0d;
+    --bs-accordion-btn-color: #33272a;
     --bs-accordion-active-color: #33272a;
     --bs-accordion-active-bg: #ff8ba7;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    --bs-accordion-icon-color: #0d0d0d;
-    --bs-accordion-icon-active-color: #0d0d0d;
+    --bs-accordion-icon-color: #33272a;
+    --bs-accordion-icon-active-color: #33272a;
+    --bs-accordion-btn-padding-x: 1rem;
+    --bs-accordion-btn-icon-width: 1rem;
+    --bs-accordion-body-padding-x: 1rem;
+}
+
+.title {
+    padding-bottom: 1rem;
+    color: #33272a;
+}
+
+h5.card-title {
+    font-size: 1.5rem;
+}
+
+h6.card-subtitle {
+    font-size: 1rem;
 }
 
 #landmark-map {
@@ -90,10 +97,6 @@ body {
     #sidebar {
         width: 100%;
     }
-}
-
-.card {
-    --bs-card-spacer-x: 0rem;
 }
 
 p.d-inline-flex.gap-1{
@@ -157,12 +160,6 @@ p.d-inline-flex.gap-1{
 .btn-group-vertical {
     padding-right: 0px;
     padding-left: 0px;
-}
-
-.headline {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fffffe;
 }
 
 .emoji-icon-1 img {

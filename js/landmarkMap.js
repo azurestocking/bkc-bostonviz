@@ -1,8 +1,9 @@
 class LandmarkMap {
 
-	constructor(parentElement, officialLandmarks, yourLandmarks, coord) {
+	constructor(parentElement, officialLandmarks, bonusLandmarks, yourLandmarks, coord) {
 		this.parentElement = parentElement;
 		this.officialLandmarks = officialLandmarks;
+		this.bonusLandmarks = bonusLandmarks;
 		this.yourLandmarks = yourLandmarks;
 		this.coord = coord;
 		this.markers = [];
@@ -62,6 +63,10 @@ class LandmarkMap {
 		// display writeup
 		if (selectedCategory === "official-landmarks") {
 			document.getElementById("sidebar").innerHTML = `
+				<div class="title">
+					<h5 class="card-title"><b>MARKING MEMORY:</b></h5>
+					<h6 class="card-subtitle"><b>BOSTON’S LANDMARKS IN THE MAKING</b></h6>
+				</div>
 				<div class="accordion" id="accordionExample">
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
@@ -103,6 +108,10 @@ class LandmarkMap {
             `;
 		} else if (selectedCategory === "your-landmarks") {
 			document.getElementById("sidebar").innerHTML = `
+				<div class="title">
+					<h5 class="card-title"><b>MARKING MEMORY:</b></h5>
+					<h6 class="card-subtitle"><b>BOSTON’S LANDMARKS IN THE MAKING</b></h6>
+				</div>
 				<div class="accordion" id="accordionExample">
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
@@ -149,6 +158,7 @@ class LandmarkMap {
 		vis.markers = [];
 
 		if (selectedCategory === "official-landmarks") {
+
 			const createMarkers = (landmarks, icon, status) => {
 				landmarks.forEach(landmark => {
 					if (landmark.coordinate) {
@@ -159,36 +169,41 @@ class LandmarkMap {
 							.on("mouseover", function (event) {
 								vis.tooltip.style("opacity", 1)
 									.html(() => {
-										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl
+										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl;
+										let isBonusLandmark = vis.bonusLandmarks.some(bonus => bonus.PID === landmark["pid_long"] || bonus.PID === landmark["PID"]);
+
 										switch (status) {
 											case "approved":
 												encodedAddress = encodeURIComponent(landmark.full_address);
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
-												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
-                                                                  <b>${landmark.assessor_description}</b><br/>
-																  <b>${landmark.full_address}</b><br/>
-                                                                  Approved, Built in ${Math.floor(landmark.yr_built)}<br/>`;
+												tooltipContent = isBonusLandmark ?
+													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
+                                                    <b>${landmark.assessor_description}</b><br/>
+													<b>${landmark.full_address}</b><br/>
+                                                    Approved, Built in ${Math.floor(landmark.yr_built)}<br/>
+													<button type="button" class="btn btn-primary bonus">View Story</button>`:
+													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
+                                                    <b>${landmark.assessor_description}</b><br/>
+													<b>${landmark.full_address}</b><br/>
+                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}<br/>`;
 												break;
 											case "pending":
-												fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
-												encodedLocation = encodeURIComponent(fullLocation);
-												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
-
-												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
-                                                                  <b>${landmark["NAME OF PROPERTY"]}</b><br/>
-																  <b>${landmark.full_address}</b><br/>
-                                                                  Pending, ${landmark.DETAILS}<br/>`;
-												break;
 											case "denied":
 												fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
 												encodedLocation = encodeURIComponent(fullLocation);
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
-												tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                                                                  <b>${landmark["NAME OF PROPERTY"]}</b><br/>
-                                                                  <b>${landmark.full_address}</b><br/>
-																  Denied, ${landmark.DETAILS}<br/>`;
+												tooltipContent = isBonusLandmark ?
+													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+                                                    <b>${landmark["NAME OF PROPERTY"]}</b><br/>
+                                                    <b>${landmark.full_address}</b><br/>
+													Denied, ${landmark.DETAILS}<br/>
+													<button type="button" class="btn btn-primary bonus">View Story</button>`:
+													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+                                                    <b>${landmark["NAME OF PROPERTY"]}</b><br/>
+                                                    <b>${landmark.full_address}</b><br/>
+													${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}<br/>`;
 												break;
 											default:
 												tooltipContent = ``
@@ -228,7 +243,7 @@ class LandmarkMap {
 									let tooltipContent;
 									if (landmark.name || landmark.story) {
 								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
-                        										 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
+                        									 <b>${landmark.name}</b><br/>${landmark.story}<br/>`;
 									} else {
 								    		tooltipContent = "<i>New Landmark: Under Review</i>";
 									}
@@ -278,7 +293,7 @@ class LandmarkMap {
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
-					canvas.style.opacity = 0.8;
+					canvas.style.opacity = 0.75;
 				}
 		}
 
