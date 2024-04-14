@@ -223,4 +223,8 @@ p.d-inline-flex.gap-1{
     60% {transform: translateY(-15px);}
 }
 
+.modal-body img {
+    width: 100%;
+}
+
 
