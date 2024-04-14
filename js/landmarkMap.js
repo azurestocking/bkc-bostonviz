@@ -239,8 +239,13 @@ class LandmarkMap {
 										${bonusLandmark.full_address}`;
 
 									let modalBodyContent =
-										`<img src="${bonusLandmark.image}" alt="Photos"></br>
-										${bonusLandmark.story}</div>`;
+										`<div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+											<img src="${bonusLandmark.image}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="Photos">
+										</div>
+										<div style="font-size: 0.8em; text-align: right; margin-top: 5px; margin-bottom: 10px;">
+											Photo: ${bonusLandmark.image_credit}
+										</div>
+										<p>${bonusLandmark.story}</p>`;
 
 									document.getElementById("modalTitle").innerHTML = modalTitle;
 									document.getElementById("modalBody").innerHTML = modalBodyContent;
