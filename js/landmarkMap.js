@@ -194,7 +194,7 @@ class LandmarkMap {
 
 										switch (status) {
 											case "approved":
-												encodedAddress = encodeURIComponent(landmark.full_address);
+												encodedAddress = encodeURIComponent(coordinate);
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 												tooltipContent = isBonusLandmark ?
@@ -239,13 +239,14 @@ class LandmarkMap {
 										${bonusLandmark.full_address}`;
 
 									let modalBodyContent =
-										`<div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+										`<div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; margin-bottom: 10px; ">
 											<img src="${bonusLandmark.image}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="Photos">
+											<div style="position: absolute; bottom: 0; right: 0; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 5px 10px; font-size: 0.8em; text-align: right;">
+												Photo: ${bonusLandmark.image_credit}
+											</div>
 										</div>
-										<div style="font-size: 0.8em; text-align: right; margin-top: 5px; margin-bottom: 10px;">
-											Photo: ${bonusLandmark.image_credit}
-										</div>
-										<p>${bonusLandmark.story}</p>`;
+										<p>${bonusLandmark.story}</p>
+										`;
 
 									document.getElementById("modalTitle").innerHTML = modalTitle;
 									document.getElementById("modalBody").innerHTML = modalBodyContent;
