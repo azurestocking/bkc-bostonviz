@@ -73,36 +73,45 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>How to Apply</b>
+								<b>Propose a landmark...</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								The designation process is formal and public. You must prepare a written summary of the history and significance of the resource, then:</br>
+								(1) Submit a draft petition via email to the BLC Executive Director.</br>
+								(2) The process involves public hearings, voter signatures, and contributions from the Mayor or BLC commissioners.</br>
+								(3) Following acceptance, the site is added to the pending landmarks list.</br>
+								(4) A Study Report is prepared and opened for public feedback.</br>
+								(5) The BLC votes on designation, followed by the Mayor and City Council's approval.</br>
 							</div>
 						</div>
 				  	</div>
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>Who Decides</b>
+								<b>Who decides a landmark?</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								Boston Landmarks Commission (BLC) and historic district commissions recognize, preserve, and protect Boston culture and history. Local volunteers serve as commissioners. All commissioners are nominated by neighborhood groups and professional organizations. They are appointed by the Mayor and confirmed by the City Council.
 							</div>
 						</div>
 				    </div>
 				    <div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-								<b>What Criteria</b>
+								<b>What is a landmark?</b>
 							</button>
 						</h2>
 						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							    Landmarks can be structures, sites, objects, man-made, or natural. There are four criteria used to evaluate the significance of a resource:</br>
+							    (1) Listed on the National Register of Historic Places.</br>
+								(2) Sites of significant events contributing to cultural, political, economic, military, or social history.</br>
+								(3) Associated with the lives of outstanding historic personages.</br>
+								(4) Exemplary of distinctive architectural or landscape design, craftsmanship, or a notable work by influential figures in these fields.</br>
 							</div>
 						</div>
 				    </div>
@@ -118,36 +127,39 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>How to Apply</b>
+								<b>Propose a landmark...</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<img src="img/qr-code.jpg" alt="QR Code">
+							Consider the spaces around you, both grand and seemingly ordinary, and explore their significance for your community. Which spaces in the city of Boston do you believe deserve landmark status?</br>
+							Scan the QR code to add your chosen site to our interactive map and share your story.</br>
+							</br>
+							<img src="img/qr-code.jpg" alt="QR Code">
 							</div>
 						</div>
 				  	</div>
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>Who Decides</b>
+								<b>Who decides a landmark?</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								You, in front of the screen! Visitors of all ages, occupations, and ethnic backgrounds are welcome to nominate resources with personal significance and contribute to our repository.
 							</div>
 						</div>
 				    </div>
 				    <div class="accordion-item">
 				        <h2 class="accordion-header">
 						  	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								<b>What Criteria</b>
+								<b>What is a landmark?</b>
 						  	</button>
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 					  	  	<div class="accordion-body">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					  	  		Compare the distribution of officially defined landmarks with those defined by residents. What factors contribute to the distinction? What implications arise from the difference? Reflect on what it truly means for a place to be considered a landmark and its role in the shaping of public memory.
 					  	  	</div>
 					    </div>
 				    </div>
@@ -266,7 +278,7 @@ class LandmarkMap {
                         									 <b>${landmark.name.toUpperCase()}</b><br/>
                         									 ${landmark.story}<br/>`;
 									} else {
-								    		tooltipContent = "<i>The New Proposal is Under Reviewed!</i>";
+								    		tooltipContent = `<i>The New Proposal is Under Reviewed!</i>`;
 									}
 									return tooltipContent;
 								})

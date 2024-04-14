@@ -209,6 +209,7 @@ p.d-inline-flex.gap-1{
 #collapseOne img {
     width: 150px;
     padding: 0px;
+    border: #33272a solid 2px;
 }
 
 .bounce img {
