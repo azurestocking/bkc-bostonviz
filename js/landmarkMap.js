@@ -245,7 +245,7 @@ class LandmarkMap {
 												Photo: ${bonusLandmark.image_credit}
 											</div>
 										</div>
-										<p>${bonusLandmark.story}</p>
+										${bonusLandmark.story}
 										`;
 
 									document.getElementById("modalTitle").innerHTML = modalTitle;
