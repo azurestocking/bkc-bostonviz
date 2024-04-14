@@ -73,7 +73,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>Propose a landmark...</b>
+								<b>Propose a new landmark...</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -90,7 +90,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>Who decides a landmark?</b>
+								<b>Who decides?</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -127,7 +127,7 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								<b>Propose a landmark...</b>
+								<b>Propose a new landmark...</b>
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -142,12 +142,12 @@ class LandmarkMap {
 				  	<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								<b>Who decides a landmark?</b>
+								<b>Who decides?</b>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								You, in front of the screen! Visitors of all ages, occupations, and ethnic backgrounds are welcome to nominate resources with personal significance and contribute to our repository.
+								You, in front of the screen! Visitors of all backgrounds are welcome to nominate places of personal significance as landmarks!
 							</div>
 						</div>
 				    </div>
