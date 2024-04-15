@@ -195,11 +195,11 @@ class LandmarkMap {
 										switch (status) {
 											case "approved":
 												encodedAddress = encodeURIComponent(coordinate);
-												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image"><br/>
+													`<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"><br/>
                                                     <b>${landmark.assessor_description.toUpperCase()}</b><br/>
 													${landmark.full_address}<br/>
                                                     ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}</div>`;
@@ -208,11 +208,11 @@ class LandmarkMap {
 											case "denied":
 												fullLocation = `${landmark["NAME OF PROPERTY"]}, ${landmark.full_address}`;
 												encodedLocation = encodeURIComponent(fullLocation);
-												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+													`<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"></br>
                                                     <b>${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
                                                     ${landmark.full_address}<br/>
                                                     ${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}</div>`;
@@ -270,7 +270,7 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.lat && landmark.lon) {
 						let coordinate = [parseFloat(landmark.lat), parseFloat(landmark.lon)];
-					    let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=300x200&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+					    let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
@@ -280,7 +280,7 @@ class LandmarkMap {
 								.html(() => {
 									let tooltipContent;
 									if (landmark.name || landmark.story) {
-								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image"></br>
+								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"></br>
                         									 <b>${landmark.name.toUpperCase()}</b><br/>
                         									 ${landmark.story}<br/>`;
 									} else {
