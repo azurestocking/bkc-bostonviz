@@ -227,4 +227,9 @@ p.d-inline-flex.gap-1{
     width: 100%;
 }
 
+.highlight {
+    font-weight: bold;
+    color: #ff8ba7;
+}
+
 

@@ -79,11 +79,11 @@ class LandmarkMap {
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
 								The designation process is formal and public. You must prepare a written summary of the history and significance of the resource, then:</br>
-								(1) Submit a draft petition via email to the BLC Executive Director.</br>
-								(2) The process involves public hearings, voter signatures, and contributions from the Mayor or BLC commissioners.</br>
-								(3) Following acceptance, the site is added to the pending landmarks list.</br>
-								(4) A Study Report is prepared and opened for public feedback.</br>
-								(5) The BLC votes on designation, followed by the Mayor and City Council's approval.</br>
+								(1) Submit a draft petition via email to Boston Landmarks Commission (BLC) Executive Director.</br>
+								(2) Submit a complete petition by acquiring voter signatures or contributions from the Mayor or BLC commissioners.</br>
+								(3) BlC votes to accept the petition at a public hearing and add the site to the pending list.</br>
+								(4) Submit a Study Report and post it for a period of public feedback.</br>
+								(5) BLC votes on designation, followed by the Mayor and City Council's approval.</br>
 							</div>
 						</div>
 				  	</div>
@@ -95,7 +95,7 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								Boston Landmarks Commission (BLC) and historic district commissions recognize, preserve, and protect Boston culture and history. Local volunteers serve as commissioners. All commissioners are nominated by neighborhood groups and professional organizations. They are appointed by the Mayor and confirmed by the City Council.
+								BLC and historic district commissions recognize, preserve, and protect Boston culture and history. Local volunteers serve as commissioners. All commissioners are nominated by neighborhood groups and professional organizations. They are appointed by the Mayor and confirmed by the City Council.
 							</div>
 						</div>
 				    </div>
@@ -132,8 +132,7 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-							Consider the spaces around you, both grand and seemingly ordinary, and explore their significance for your community. Which spaces in the city of Boston do you believe deserve landmark status?</br>
-							Scan the QR code to add your chosen site to our interactive map and share your story.</br>
+							Consider the spaces around you, both grand and seemingly ordinary, and explore their significance for your community. Which spaces in the city of Boston do you believe deserve landmark status? <span class="highlight">Scan the QR code to add your chosen site to our interactive map and share your stories!</span></br>
 							</br>
 							<img src="img/qr-code.jpg" alt="QR Code">
 							</div>
