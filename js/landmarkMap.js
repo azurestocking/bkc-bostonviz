@@ -188,6 +188,31 @@ class LandmarkMap {
 						let marker = L.marker(coordinate, {icon: finalIcon})
 							.addTo(vis.map)
 							.on("mouseover", function (event) {
+								
+								let tooltipWidth = 350;
+								let tooltipHeight = 320;
+								let pageX = event.originalEvent.pageX;
+								let pageY = event.originalEvent.pageY;
+								let viewportWidth = window.innerWidth;
+								let viewportHeight = window.innerHeight;
+
+								let styleOptions = {
+									left: pageX + 10 + 'px',
+									top: pageY + 10 + 'px'
+								};
+
+								// If close to the right edge, use 'right' instead of 'left'
+								if (pageX + tooltipWidth > viewportWidth) {
+									styleOptions.right = (viewportWidth - pageX) + 10 + 'px';
+									delete styleOptions.left; // Remove the 'left' style to prevent conflict
+								}
+
+								// If close to the bottom edge, use 'bottom' instead of 'top'
+								if (pageY + tooltipHeight > viewportHeight) {
+									styleOptions.bottom = (viewportHeight - pageY) + 10 + 'px';
+									delete styleOptions.top; // Remove the 'top' style to prevent conflict
+								}
+
 								vis.tooltip.style("opacity", 1)
 									.html(() => {
 										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl;
@@ -199,10 +224,10 @@ class LandmarkMap {
 
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"><br/>
-                                                    <b>${landmark.assessor_description.toUpperCase()}</b><br/>
+													`<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"><br/>
+                                                    							<b>${landmark.assessor_description.toUpperCase()}</b><br/>
 													${landmark.full_address}<br/>
-                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}</div>`;
+                                                    							${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}</div>`;
 												break;
 											case "pending":
 											case "denied":
@@ -212,22 +237,28 @@ class LandmarkMap {
 
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
-													`<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"></br>
-                                                    <b>${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
-                                                    ${landmark.full_address}<br/>
-                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}</div>`;
+													`<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"></br>
+												    	<b>${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
+												    	${landmark.full_address}<br/>
+												    	${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}</div>`;
 												break;
 											default:
 												tooltipContent = ``
 										}
 										return tooltipContent;
 									})
-									.style("left", (event.originalEvent.pageX + 10) + "px")
-									.style("top", (event.originalEvent.pageY + 10) + "px")
+									.style("left", styleOptions.left || null) // Apply 'left' or 'null' if 'right' is used
+									.style("top", styleOptions.top || null) // Apply 'top' or 'null' if 'bottom' is used
+									.style("right", styleOptions.right || null) // Apply 'right' or 'null'
+									.style("bottom", styleOptions.bottom || null) // Apply 'bottom' or 'null'
 									.style("visibility", "visible");
 							})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
+									.style("left", null) // Clear positioning styles
+									.style("top", null)
+									.style("right", null)
+									.style("bottom", null)
 									.style("visibility", "hidden");
 							})
 							.on('click', function () {
@@ -276,11 +307,36 @@ class LandmarkMap {
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
 
 						marker.on("mouseover", function (event) {
+
+							let tooltipWidth = 350;
+							let tooltipHeight = 320;
+							let pageX = event.originalEvent.pageX;
+							let pageY = event.originalEvent.pageY;
+							let viewportWidth = window.innerWidth;
+							let viewportHeight = window.innerHeight;
+
+							let styleOptions = {
+								left: pageX + 10 + 'px',
+								top: pageY + 10 + 'px'
+							};
+
+							// If close to the right edge, use 'right' instead of 'left'
+							if (pageX + tooltipWidth > viewportWidth) {
+								styleOptions.right = (viewportWidth - pageX) + 10 + 'px';
+								delete styleOptions.left; // Remove the 'left' style to prevent conflict
+							}
+
+							// If close to the bottom edge, use 'bottom' instead of 'top'
+							if (pageY + tooltipHeight > viewportHeight) {
+								styleOptions.bottom = (viewportHeight - pageY) + 10 + 'px';
+								delete styleOptions.top; // Remove the 'top' style to prevent conflict
+							}
+							
 							vis.tooltip.style("opacity", 1)
 								.html(() => {
 									let tooltipContent;
 									if (landmark.name || landmark.story) {
-								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image" width="100%"></br>
+								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"></br>
                         									 <b>${landmark.name.toUpperCase()}</b><br/>
                         									 ${landmark.story}<br/>`;
 									} else {
@@ -288,12 +344,18 @@ class LandmarkMap {
 									}
 									return tooltipContent;
 								})
-								.style("left", (event.originalEvent.pageX + 10) + "px")
-								.style("top", (event.originalEvent.pageY + 10) + "px")
+								.style("left", styleOptions.left || null) // Apply 'left' or 'null' if 'right' is used
+								.style("top", styleOptions.top || null) // Apply 'top' or 'null' if 'bottom' is used
+								.style("right", styleOptions.right || null) // Apply 'right' or 'null'
+								.style("bottom", styleOptions.bottom || null) // Apply 'bottom' or 'null'
 								.style("visibility", "visible");
 						})
 							.on("mouseout", function () {
 								vis.tooltip.style("opacity", 0)
+									.style("left", null) // Clear positioning styles
+									.style("top", null)
+									.style("right", null)
+									.style("bottom", null)
 									.style("visibility", "hidden");
 							});
 
