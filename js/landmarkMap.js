@@ -339,7 +339,7 @@ class LandmarkMap {
                         									 <b>${landmark.name.toUpperCase()}</b><br/>
                         									 ${landmark.story}<br/>`;
 									} else {
-								    		tooltipContent = `<i>The New Proposal is Under Reviewed!</i>`;
+								    		tooltipContent = `<i>The New Proposal is Under Review!</i>`;
 									}
 									return tooltipContent;
 								})
