@@ -1,7 +1,7 @@
 let landmarkMap;
 
 Promise.all([
-    d3.csv("data/blc_data_cleaned.csv").then(data => {
+    d3.csv("data/blc_data_cleaned_g.csv").then(data => {
         let deniedLandmarks = data.filter(row => row.CATEGORY === "E = Unsuccessful Petition" || row.CATEGORY === "E = Unsuccessful Petition & Demolished");
         let pendingLandmarks = data.filter(row => row.CATEGORY === "C = Pending Landmark/District");
         return { deniedLandmarks, pendingLandmarks };

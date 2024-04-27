@@ -78,12 +78,19 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								The designation process is formal and public. You must prepare a written summary of the history and significance of the resource, then:</br>
-								(1) Submit a draft petition via email to Boston Landmarks Commission (BLC) Executive Director.</br>
-								(2) Submit a complete petition by acquiring voter signatures or contributions from the Mayor or BLC commissioners.</br>
-								(3) BlC votes to accept the petition at a public hearing and add the site to the pending list.</br>
-								(4) Submit a Study Report and post it for a period of public feedback.</br>
-								(5) BLC votes on designation, followed by the Mayor and City Council's approval.</br>
+								<b>To name something as an official landmark, you need to...</b><br/><br/>
+								<ol>
+									<li data-emoji="1️⃣">Write a short report about why the building or place is important<br/></li>
+								
+									<li data-emoji="2️⃣">Email the draft to the <i>Boston Landmarks Commission (BLC)</i><br/></li>
+								
+									<li data-emoji="3️⃣">Gather enough signatures or support from <i>Mayor</i> or <i>BLC</i><br/></li>
+								
+									<li data-emoji="4️⃣"><i>BLC</i> will look at the request in a public meeting, if they agree, it becomes a <b><img src="img/icon-yellow.png" style="width: var(--bs-body-font-size); border: none;"/>pending landmark</b><br/></li>
+								
+									<li data-emoji="5️⃣">Write a <i>Study Report</i> and post it for the public to give opinions<br/></li>
+								
+									<li data-emoji="6️⃣">Finally, <i>BLC, Mayor</i>, and <i>City Council</i> will decide if it should be an <b><img src="img/icon-blue.png" style="width: var(--bs-body-font-size); border: none;"/>approved landmark</b>, otherwise, a <b><img src="img/icon-red.png" style="width: var(--bs-body-font-size); border: none;"/>denied petition</b></li>
 							</div>
 						</div>
 				  	</div>
@@ -95,7 +102,8 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								BLC and historic district commissions recognize, preserve, and protect Boston culture and history. Local volunteers serve as commissioners. All commissioners are nominated by neighborhood groups and professional organizations. They are appointed by the Mayor and confirmed by the City Council.
+								<b>Boston Landmarks Commission (BLC) and 10 local historic district commissions</b> work to keep Boston's culture and history safe.<br/><br/>
+Local volunteers help out as commissioners. Neighborhood groups and professional groups suggest who should be commissioners. Then, the Mayor picks them, and the City Council agrees with the choice.
 							</div>
 						</div>
 				    </div>
@@ -107,11 +115,13 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-							    Landmarks can be structures, sites, objects, man-made, or natural. There are four criteria used to evaluate the significance of a resource:</br>
-							    (1) Listed on the National Register of Historic Places.</br>
-								(2) Sites of significant events contributing to cultural, political, economic, military, or social history.</br>
-								(3) Associated with the lives of outstanding historic personages.</br>
-								(4) Exemplary of distinctive architectural or landscape design, craftsmanship, or a notable work by influential figures in these fields.</br>
+								<b>Landmarks can be buildings, places, objects, or natural spots.</b> There are four ways to decide if something is important enough to be a landmark:<br/><br/>
+								<ol>
+									<li data-emoji="1️⃣">It's on the <i>National List of Historic Places</i></li>
+									<li data-emoji="2️⃣">It's where <b>important events</b> happened that helped shape our culture, politics, economy, military, or society</li>
+									<li data-emoji="3️⃣">It's connected to the lives of <b>famous historical people</b></li>
+									<li data-emoji="4️⃣">It shows off <b>special architecture</b> or <b>landscape designs</b>, great craftsmanship, or works by famous designers</li>
+								</ol>
 							</div>
 						</div>
 				    </div>
@@ -132,8 +142,9 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-							Consider the spaces around you, both grand and seemingly ordinary, and explore their significance for your community. Which spaces in the city of Boston do you believe deserve landmark status? <span class="highlight">Scan the QR code to add your chosen site to our interactive map and share your stories!</span></br>
-							</br>
+								<b>Which places in Boston do you think should be known as landmarks?</b><br/><br/>
+								Think about the places around you, both big and small, and why they are important to your community. <br/><br/>
+								<span class="highlight">Scan the QR code to add your landmark!</span></br></br>
 							<img src="img/qr-code.jpg" alt="QR Code">
 							</div>
 						</div>
@@ -146,7 +157,8 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								You, in front of the screen! Visitors of all backgrounds are welcome to nominate places of personal significance as landmarks!
+								<b>You, in front of the screen!</b><br/><br/>
+								Visitors of all backgrounds are welcome to nominate places of personal significance as landmarks!
 							</div>
 						</div>
 				    </div>
@@ -158,9 +170,10 @@ class LandmarkMap {
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 					  	  	<div class="accordion-body">
-					  	  		Compare the distribution of officially defined landmarks with those defined by residents. What factors contribute to the distinction? What implications arise from the difference? Reflect on what it truly means for a place to be considered a landmark and its role in the shaping of public memory.
-					  	  	</div>
-					    </div>
+								Look at the difference between landmarks chosen by officials and those picked by people who live in the area.<br/><br/>
+								<b>Why are they different? What does this difference mean?</b><br/><br/>
+								Think about what makes a place really important as a landmark and how it helps us remember history.					    
+							</div>
 				    </div>
 				</div>
             `;
@@ -207,26 +220,35 @@ class LandmarkMap {
 								}
 
 								// If close to the bottom edge, use 'bottom' instead of 'top'
-								if (pageY + tooltipHeight > viewportHeight) {
+								if (pageY + tooltipHeight + 80 > viewportHeight) {
 									styleOptions.bottom = (viewportHeight - pageY) + 10 + 'px';
 									delete styleOptions.top; // Remove the 'top' style to prevent conflict
 								}
 
 								vis.tooltip.style("opacity", 1)
 									.html(() => {
-										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl;
+										let tooltipContent, encodedAddress, fullLocation, encodedLocation, streetViewImageUrl, fetchPrompt, identifier;
 
 										switch (status) {
 											case "approved":
 												encodedAddress = encodeURIComponent(coordinate);
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${encodedAddress}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
+												identifier = landmark.pid_long;
+												fetchPrompt = {
+													landmark: landmark,
+													instructions: "Additional Instruction: If no landmark's name is provided, use the geo-coordinate and street address to inference what it is, try your best. Tell the landmark's name if you are sure. Don't mention the street address or the coordinates."
+												};
+												console.log(fetchPrompt)
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"><br/>
-                                                    							<b>${landmark.assessor_description.toUpperCase()}</b><br/>
+                                                    <b>${landmark.name ? landmark.name.toUpperCase() : landmark.assessor_description.toUpperCase()}</b><br/>
 													${landmark.full_address}<br/>
-                                                    							${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}</div>`;
+                                                    ${status.charAt(0).toUpperCase()}${status.slice(1)}, Built in ${Math.floor(landmark.yr_built)}<br/><br/>
+													<span id="storyText${identifier}" style="padding-bottom: 0px;"></span>`;
+
+												fetchOfficial(fetchPrompt, identifier);
 												break;
 											case "pending":
 											case "denied":
@@ -234,12 +256,21 @@ class LandmarkMap {
 												encodedLocation = encodeURIComponent(fullLocation);
 												streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${encodedLocation}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
+												identifier = landmark["NAME OF PROPERTY"]
+												fetchPrompt = {
+													"name": landmark["NAME OF PROPERTY"],
+													"geo-coordinate": landmark.coordinate,
+													"full address": landmark.full_address
+												};
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"></br>
 												    	<b>${landmark["NAME OF PROPERTY"].toUpperCase()}</b><br/>
 												    	${landmark.full_address}<br/>
-												    	${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}</div>`;
+												    	${status.charAt(0).toUpperCase()}${status.slice(1)}, ${landmark.DETAILS}<br/><br/>
+														<span id="storyText${identifier}" style="padding-bottom: 0px;"></span>`;
+
+												fetchOfficial(fetchPrompt, identifier);
 												break;
 											default:
 												tooltipContent = ``
@@ -300,7 +331,7 @@ class LandmarkMap {
 				landmarks.forEach(landmark => {
 					if (landmark.lat && landmark.lon) {
 						let coordinate = [parseFloat(landmark.lat), parseFloat(landmark.lon)];
-					    let streetViewImageUrl = `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
+					    let streetViewImageUrl = landmark.img ? landmark.img : `https://maps.googleapis.com/maps/api/streetview?source=outdoor&size=600x400&fov=120&location=${coordinate.join(',')}&key=AIzaSyAZds2BIz-J0WNouMON5c25WPfO498vjk0`;
 
 						let dynamicIcon = L.divIcon({ className: 'emoji-icon-2', html: landmark.emoji, iconSize: [20, 20] });
 						let marker = L.marker(coordinate, {icon: dynamicIcon}).addTo(vis.map)
@@ -326,7 +357,7 @@ class LandmarkMap {
 							}
 
 							// If close to the bottom edge, use 'bottom' instead of 'top'
-							if (pageY + tooltipHeight > viewportHeight) {
+							if (pageY + tooltipHeight + 80 > viewportHeight) {
 								styleOptions.bottom = (viewportHeight - pageY) + 10 + 'px';
 								delete styleOptions.top; // Remove the 'top' style to prevent conflict
 							}
@@ -335,9 +366,18 @@ class LandmarkMap {
 								.html(() => {
 									let tooltipContent;
 									if (landmark.name || landmark.story) {
-								    		tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"></br>
-                        									 <b>${landmark.name.toUpperCase()}</b><br/>
-                        									 ${landmark.story}<br/>`;
+										tooltipContent = `<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"></br>
+                  							<b>${landmark.name.toUpperCase()}</b><br/>` +
+											(landmark.story ? `${landmark.story}<br/><br/>` : "") +
+											`<span id="storyText${landmark.name}" style="padding-bottom: 0px;"><i>Our Take: </i></span>`;
+
+											let fetchPrompt = {
+												"name": landmark.name,
+												"lat": landmark.lat,
+												"lon": landmark.lon,
+												"story": landmark.story
+											};
+											fetchPersonal(fetchPrompt);
 									} else {
 								    		tooltipContent = `<i>The New Proposal is Under Review!</i>`;
 									}
@@ -393,7 +433,7 @@ class LandmarkMap {
 		if (vis.heatLayer) {
 			let canvas = vis.heatLayer._canvas;
 				if (canvas) {
-					canvas.style.opacity = 0.7;
+					canvas.style.opacity = 0.4;
 				}
 		}
 
