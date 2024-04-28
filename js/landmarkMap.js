@@ -8,7 +8,7 @@ class LandmarkMap {
 		this.coord = coord;
 		this.markers = [];
 
-		console.log("bonus: ", this.bonusLandmarks);
+		// console.log("bonus: ", this.bonusLandmarks);
 
 		this.initVis();
 	}
@@ -239,7 +239,7 @@ Local volunteers help out as commissioners. Neighborhood groups and professional
 													landmark: landmark,
 													instructions: "Additional Instruction: If no landmark's name is provided, use the geo-coordinate and street address to inference what it is, try your best. Tell the landmark's name if you are sure. Don't mention the street address or the coordinates."
 												};
-												console.log(fetchPrompt)
+												// console.log(fetchPrompt)
 												tooltipContent = isBonusLandmark ?
 													`<i>Click to Catch Me and Know More!</i>`:
 													`<img src="${streetViewImageUrl}" alt="Street View Image" width="300px"><br/>

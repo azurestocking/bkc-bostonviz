@@ -6,7 +6,7 @@ Promise.all([
         let pendingLandmarks = data.filter(row => row.CATEGORY === "C = Pending Landmark/District");
         return { deniedLandmarks, pendingLandmarks };
     }),
-    d3.csv("data/building_data_cleaned.csv").then(data => {
+    d3.csv("data/building_data_named.csv").then(data => {
         return { approvedLandmarks: data };
     }),
     d3.csv("data/stories.csv").then(data => {
