@@ -8,8 +8,6 @@ class LandmarkMap {
 		this.coord = coord;
 		this.markers = [];
 
-		// console.log("bonus: ", this.bonusLandmarks);
-
 		this.initVis();
 	}
 
@@ -78,19 +76,12 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<b>To name something as an official landmark, you need to...</b><br/><br/>
-								<ol>
-									<li data-emoji="1️⃣">Write a short report about why the building or place is important<br/></li>
-								
-									<li data-emoji="2️⃣">Email the draft to the <i>Boston Landmarks Commission (BLC)</i><br/></li>
-								
-									<li data-emoji="3️⃣">Gather enough signatures or support from <i>Mayor</i> or <i>BLC</i><br/></li>
-								
-									<li data-emoji="4️⃣"><i>BLC</i> will look at the request in a public meeting, if they agree, it becomes a <b><img src="img/icon-yellow.png" style="width: var(--bs-body-font-size); border: none;"/>pending landmark</b><br/></li>
-								
-									<li data-emoji="5️⃣">Write a <i>Study Report</i> and post it for the public to give opinions<br/></li>
-								
-									<li data-emoji="6️⃣">Finally, <i>BLC, Mayor</i>, and <i>City Council</i> will decide if it should be an <b><img src="img/icon-blue.png" style="width: var(--bs-body-font-size); border: none;"/>approved landmark</b>, otherwise, a <b><img src="img/icon-red.png" style="width: var(--bs-body-font-size); border: none;"/>denied petition</b></li>
+								The designation process is formal and public. You must prepare a written summary of the history and significance of the resource, then:</br>
+								(1) Submit a draft petition via email to Boston Landmarks Commission (BLC) Executive Director.</br>
+								(2) Submit a complete petition by acquiring voter signatures or contributions from the Mayor or BLC commissioners.</br>
+								(3) BlC votes to accept the petition at a public hearing and add the site to the pending list.</br>
+								(4) Submit a Study Report and post it for a period of public feedback.</br>
+								(5) BLC votes on designation, followed by the Mayor and City Council's approval.</br>
 							</div>
 						</div>
 				  	</div>
@@ -102,8 +93,7 @@ class LandmarkMap {
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<b>Boston Landmarks Commission (BLC) and 10 local historic district commissions</b> work to keep Boston's culture and history safe.<br/><br/>
-Local volunteers help out as commissioners. Neighborhood groups and professional groups suggest who should be commissioners. Then, the Mayor picks them, and the City Council agrees with the choice.
+								BLC and historic district commissions recognize, preserve, and protect Boston culture and history. Local volunteers serve as commissioners. All commissioners are nominated by neighborhood groups and professional organizations. They are appointed by the Mayor and confirmed by the City Council.
 							</div>
 						</div>
 				    </div>
@@ -115,13 +105,11 @@ Local volunteers help out as commissioners. Neighborhood groups and professional
 						</h2>
 						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<b>Landmarks can be buildings, places, objects, or natural spots.</b> There are four ways to decide if something is important enough to be a landmark:<br/><br/>
-								<ol>
-									<li data-emoji="1️⃣">It's on the <i>National List of Historic Places</i></li>
-									<li data-emoji="2️⃣">It's where <b>important events</b> happened that helped shape our culture, politics, economy, military, or society</li>
-									<li data-emoji="3️⃣">It's connected to the lives of <b>famous historical people</b></li>
-									<li data-emoji="4️⃣">It shows off <b>special architecture</b> or <b>landscape designs</b>, great craftsmanship, or works by famous designers</li>
-								</ol>
+							    Landmarks can be structures, sites, objects, man-made, or natural. There are four criteria used to evaluate the significance of a resource:</br>
+							    (1) Listed on the National Register of Historic Places.</br>
+								(2) Sites of significant events contributing to cultural, political, economic, military, or social history.</br>
+								(3) Associated with the lives of outstanding historic personages.</br>
+								(4) Exemplary of distinctive architectural or landscape design, craftsmanship, or a notable work by influential figures in these fields.</br>
 							</div>
 						</div>
 				    </div>
@@ -142,10 +130,9 @@ Local volunteers help out as commissioners. Neighborhood groups and professional
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<b>Which places in Boston do you think should be known as landmarks?</b><br/><br/>
-								Think about the places around you, both big and small, and why they are important to your community. <br/><br/>
-								<span class="highlight">Scan the QR code to add your landmark!</span></br></br>
-							<img src="img/qr-code.jpg" alt="QR Code">
+								Consider the spaces around you, both grand and seemingly ordinary, and explore their significance for your community. Which spaces in the city of Boston do you believe deserve landmark status? <span class="highlight">Scan the QR code to add your chosen site to our interactive map and share your stories!</span></br>
+								</br>
+								<img src="img/qr-code.jpg" alt="QR Code">
 							</div>
 						</div>
 				  	</div>
@@ -157,8 +144,7 @@ Local volunteers help out as commissioners. Neighborhood groups and professional
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
-								<b>You, in front of the screen!</b><br/><br/>
-								Visitors of all backgrounds are welcome to nominate places of personal significance as landmarks!
+								You, in front of the screen! Visitors of all backgrounds are welcome to nominate places of personal significance as landmarks!
 							</div>
 						</div>
 				    </div>
@@ -170,10 +156,8 @@ Local volunteers help out as commissioners. Neighborhood groups and professional
 					    </h2>
 					    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 					  	  	<div class="accordion-body">
-								Look at the difference between landmarks chosen by officials and those picked by people who live in the area.<br/><br/>
-								<b>Why are they different? What does this difference mean?</b><br/><br/>
-								Think about what makes a place really important as a landmark and how it helps us remember history.					    
-							</div>
+					  	  		Compare the distribution of officially defined landmarks with those defined by residents. What factors contribute to the distinction? What implications arise from the difference? Reflect on what it truly means for a place to be considered a landmark and its role in the shaping of public memory.
+					  	  	</div>
 				    </div>
 				</div>
             `;
